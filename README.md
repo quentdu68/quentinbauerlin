@@ -2,7 +2,9 @@
 
 ### Education
 PhD in Materials Chemistry
-# Jan 2020 - Apr 2023
+Jan 2020 - Apr 2023
+
+Master's degree, Science and Engineering of Materials
 
 ### Work Experience
 Post-doctorate @ IS2M
