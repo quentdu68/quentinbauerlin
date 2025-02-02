@@ -1,7 +1,8 @@
-# Quentin Bauerlin
+# PhD in Materials Chemistry
 
 ### Education
-Chimie, PhD
+PhD in Materials Chemistry
+# Jan 2020 - Apr 2023
 
 ### Work Experience
 Post-doctorate @ IS2M
