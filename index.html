@@ -3,48 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Quentin Bauerlin - Docteur en Chimie des Matériaux, Développeur Web">
+  <meta name="description" content="Portfolio de Quentin Bauerlin">
   <title>Quentin Bauerlin - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-black text-white">
+<body>
 
-  <header class="text-center p-8">
-    <h1 class="text-5xl font-bold font-mono tracking-widest uppercase">Quentin Bauerlin</h1>
-    <h2 id="profession" class="text-2xl font-mono text-gray-400 mt-2">Docteur en Chimie des Matériaux</h2>
+  <header class="header">
+    <h1 class="header-title">Quentin Bauerlin</h1>
+    <h2 id="profession" class="header-subtitle">Docteur en Chimie des Matériaux</h2>
   </header>
 
-  <nav class="flex justify-center space-x-6 mt-8">
+  <nav class="nav">
     <button id="about-btn" class="nav-button">À propos</button>
     <button id="projects-btn" class="nav-button">Projets</button>
   </nav>
 
-  <div class="absolute bottom-4 left-4 flex space-x-2">
-    <button id="fr-btn" class="lang-button">🇫🇷</button>
-    <button id="en-btn" class="lang-button">🇬🇧</button>
-  </div>
-
-  <main id="content" class="mt-10 text-center">
-    <p id="home-text" class="text-lg font-mono">Bienvenue sur mon portfolio !</p>
+  <main id="content" class="main-content">
+    <p id="home-text" class="main-text">Bienvenue sur mon portfolio !</p>
   </main>
 
-  <section id="about-section" class="hidden text-center mt-10">
-    <div class="card mx-auto">
-      <h2 class="text-2xl font-bold">À propos de moi</h2>
-      <p class="mt-2" id="about-text">Je suis un développeur passionné...</p>
+  <section id="about-section" class="section hidden">
+    <div class="card">
+      <h2 class="section-title">À propos de moi</h2>
+      <p id="about-text">Je suis un développeur passionné...</p>
     </div>
   </section>
 
-  <section id="projects-section" class="hidden text-center mt-10">
-    <div class="card mx-auto">
-      <h2 class="text-2xl font-bold">Mes Projets</h2>
-      <p class="mt-2" id="projects-text">Découvrez certains de mes travaux...</p>
+  <section id="projects-section" class="section hidden">
+    <div class="card">
+      <h2 class="section-title">Mes Projets</h2>
+      <p id="projects-text">Découvrez certains de mes travaux...</p>
     </div>
   </section>
 
-  <footer class="text-center mt-10">
-    <p>Contactez-moi via <a href="mailto:quentin.bauerlin@example.com" class="text-blue-500">email</a></p>
+  <footer class="footer">
+    <div class="language-buttons">
+      <button id="fr-btn" class="lang-button">🇫🇷</button>
+      <button id="en-btn" class="lang-button">🇬🇧</button>
+    </div>
+    <p>Contactez-moi via <a href="mailto:quentin@example.com" class="email-link">email</a></p>
   </footer>
 
   <script>
