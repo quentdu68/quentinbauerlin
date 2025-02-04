@@ -1,111 +1,52 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Quentin Bauerlin">
-  <title>Quentin Bauerlin - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+import { useState } from "react";
+import { Globe, User, Briefcase } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-  <!-- Entête avec le titre et la profession -->
-  <header class="header">
-    <h1 class="header-title">Quentin Bauerlin</h1>
-    <h2 id="profession" class="header-subtitle">Docteur en Chimie des Matériaux</h2>
-  </header>
+export default function Portfolio() {
+  const [language, setLanguage] = useState("en");
+  const [section, setSection] = useState("home");
 
-  <!-- Menu de navigation -->
-  <nav class="nav">
-    <button id="about-btn" class="nav-button">À propos</button>
-    <button id="projects-btn" class="nav-button">Projets</button>
-  </nav>
-
-  <!-- Contenu principal -->
-  <main id="content" class="main-content">
-    <p id="home-text" class="main-text">Bienvenue sur mon portfolio !</p>
-  </main>
-
-  <!-- Section À propos -->
-  <section id="about-section" class="section hidden">
-    <div class="card">
-      <h2 class="section-title">À propos de moi</h2>
-      <p id="about-text">Je suis un développeur passionné...</p>
+  return (
+    <div className="relative min-h-screen bg-black text-white p-8 flex flex-col items-center justify-center space-y-6">
+      <h1 className="text-5xl font-bold text-center uppercase font-mono tracking-widest">
+        Quentin Bauerlin
+      </h1>
+      <h2 className="text-2xl font-mono text-gray-400">{language === "fr" ? "Docteur en Chimie des Matériaux" : "PhD in Materials Chemistry"}</h2>
+      
+      <nav className="flex flex-col space-y-4">
+        <Button onClick={() => setSection("about")} className="bg-red-600 hover:bg-red-800 px-6 py-3 text-xl uppercase font-bold border-2 border-white">
+          {language === "fr" ? "À propos" : "About"}
+        </Button>
+        <Button onClick={() => setSection("projects")} className="bg-red-600 hover:bg-red-800 px-6 py-3 text-xl uppercase font-bold border-2 border-white">
+          {language === "fr" ? "Projets" : "Projects"}
+        </Button>
+      </nav>
+      
+      <div className="mt-10 text-center">
+        {section === "home" && <p className="text-lg font-mono">{language === "fr" ? "Bienvenue sur mon portfolio !" : "Welcome to my portfolio!"}</p>}
+        {section === "about" && (
+          <Card className="w-96 bg-gray-900 text-white border border-gray-700">
+            <CardContent className="p-4">
+              <h2 className="text-2xl font-bold">{language === "fr" ? "À propos de moi" : "About Me"}</h2>
+              <p className="mt-2">{language === "fr" ? "Je suis un développeur passionné..." : "I am a passionate developer..."}</p>
+            </CardContent>
+          </Card>
+        )}
+        {section === "projects" && (
+          <Card className="w-96 bg-gray-900 text-white border border-gray-700">
+            <CardContent className="p-4">
+              <h2 className="text-2xl font-bold">{language === "fr" ? "Mes Projets" : "My Projects"}</h2>
+              <p className="mt-2">{language === "fr" ? "Découvrez certains de mes travaux..." : "Explore some of my work..."}</p>
+            </CardContent>
+          </Card>
+        )}
+      </div>
+      
+      <div className="absolute bottom-4 left-4 flex space-x-2">
+        <Button onClick={() => setLanguage("fr")} className="bg-transparent border-none">🇫🇷</Button>
+        <Button onClick={() => setLanguage("en")} className="bg-transparent border-none">🇬🇧</Button>
+      </div>
     </div>
-  </section>
-
-  <!-- Section Projets -->
-  <section id="projects-section" class="section hidden">
-    <div class="card">
-      <h2 class="section-title">Mes Projets</h2>
-      <p id="projects-text">Découvrez certains de mes travaux...</p>
-    </div>
-  </section>
-
-  <!-- Footer avec les boutons de langue -->
-  <footer class="footer">
-    <div class="language-buttons">
-      <button id="fr-btn" class="lang-button">🇫🇷</button>
-      <button id="en-btn" class="lang-button">🇬🇧</button>
-    </div>
-    <p>Contactez-moi via <a href="mailto:quentin@example.com" class="email-link">email</a></p>
-  </footer>
-
-  <script>
-    let language = 'fr'; // Langue par défaut
-    let section = 'home'; // Section par défaut
-
-    // Fonction pour mettre à jour le contenu en fonction de la langue et de la section
-    function updateContent() {
-      const homeText = document.getElementById('home-text');
-      const aboutText = document.getElementById('about-text');
-      const projectsText = document.getElementById('projects-text');
-      const profession = document.getElementById('profession');
-
-      // Mise à jour du texte en fonction de la langue
-      if (language === 'fr') {
-        homeText.textContent = 'Bienvenue sur mon portfolio !';
-        aboutText.textContent = 'Je suis un développeur passionné...';
-        projectsText.textContent = 'Découvrez certains de mes travaux...';
-        profession.textContent = 'Docteur en Chimie des Matériaux';
-      } else {
-        homeText.textContent = 'Welcome to my portfolio!';
-        aboutText.textContent = 'I am a passionate developer...';
-        projectsText.textContent = 'Explore some of my work...';
-        profession.textContent = 'PhD in Materials Chemistry';
-      }
-
-      // Masquer/afficher les sections
-      document.getElementById('about-section').classList.toggle('hidden', section !== 'about');
-      document.getElementById('projects-section').classList.toggle('hidden', section !== 'projects');
-      homeText.classList.toggle('hidden', section !== 'home');
-    }
-
-    // Changer la langue
-    document.getElementById('fr-btn').addEventListener('click', function() {
-      language = 'fr';
-      updateContent();
-    });
-
-    document.getElementById('en-btn').addEventListener('click', function() {
-      language = 'en';
-      updateContent();
-    });
-
-    // Changer la section
-    document.getElementById('about-btn').addEventListener('click', function() {
-      section = 'about';
-      updateContent();
-    });
-
-    document.getElementById('projects-btn').addEventListener('click', function() {
-      section = 'projects';
-      updateContent();
-    });
-
-    // Initialiser le contenu
-    updateContent();
-  </script>
-
-</body>
-</html>
+  );
+}
