@@ -24,7 +24,7 @@ const content = {
     }
 };
 
-let currentLang = 'fr';
+let currentLang = 'en';
 
 // Fonction pour basculer entre les sections
 function showAbout() {
