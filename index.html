@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Ghimbeu | Portfolio</title>
-    <link rel="stylesheet" href="styles/style1.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Quentin Bauerlin - Docteur en Chimie des Matériaux, Développeur Web">
+  <title>Quentin Bauerlin - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-black text-white">
 
-    <header>Mon portfolio</header>
-    
-    <div class="page1">
-        
-        <div class="profile">
+  <header class="text-center p-8">
+    <h1 class="text-5xl font-bold font-mono tracking-widest uppercase">Quentin Bauerlin</h1>
+    <h2 id="profession" class="text-2xl font-mono text-gray-400 mt-2">Docteur en Chimie des Matériaux</h2>
+  </header>
 
-            <img src="images/circle.png" alt="circle" width="400" height="400px" onclick="showDesc()">
-            <div class="profileDesc">Bienvenue sur mon site web portfolio. 
-                <br>Je me prénomme Gabriel Ghimbeu et je suis en 1ère année de BUT Métiers du Multimédia et de l'Internet. Je suis passionné par l'animation 3D et la programmation.
-                <br>Mon rêve ultime serait d'être animateur 3d chez Pixar.
-            </div>
+  <nav class="flex justify-center space-x-6 mt-8">
+    <button id="about-btn" class="nav-button">À propos</button>
+    <button id="projects-btn" class="nav-button">Projets</button>
+  </nav>
 
-        </div>
+  <div class="absolute bottom-4 left-4 flex space-x-2">
+    <button id="fr-btn" class="lang-button">🇫🇷</button>
+    <button id="en-btn" class="lang-button">🇬🇧</button>
+  </div>
 
+  <main id="content" class="mt-10 text-center">
+    <p id="home-text" class="text-lg font-mono">Bienvenue sur mon portfolio !</p>
+  </main>
+
+  <section id="about-section" class="hidden text-center mt-10">
+    <div class="card mx-auto">
+      <h2 class="text-2xl font-bold">À propos de moi</h2>
+      <p class="mt-2" id="about-text">Je suis un développeur passionné...</p>
     </div>
+  </section>
 
-    <div class="page2">
-
-        <h1>Choissisez votre SAE</h1>
-        <div class="page2content" id="scroll">
-
-            <button onclick="leftClick()">❰</button>
-            <div class="textStuff" id="scrollSwag">
-
-                <h3 class="saeName">SAE</h3>
-                <div class="saeDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia vitae in libero optio id dolor sunt inventore soluta dicta qui accusamus, rerum numquam labore adipisci eaque! Vel reprehenderit id repellat.</div>
-                
-                <div class="statContainer">
-                    
-                    <div class="stat1">
-
-                        <img src="svg/sword.svg" alt="atk" width="20px" height="20px">
-                        <div class="stat1bar"></div>
-    
-                    </div>
-                    <div class="stat2">
-    
-                        <img src="svg/heart.svg" alt="hp" width="20px" height="20px">
-                        <div class="stat2bar"></div>
-    
-                    </div>
-                    <div class="stat3">
-    
-                        <img src="svg/thunder.svg" alt="spd" width="20px" height="20px">
-                        <div class="stat3bar"></div>
-    
-                    </div>
-
-                </div>
-
-            </div>
-            <img src="images/sae101.png" alt="Character Image" class="charImage">
-            <button onclick="rightClick()">❱</button>
-
-        </div>
-        
-        <div class="selectButton" onclick="selectButton()">Sélectionner</div>
-
+  <section id="projects-section" class="hidden text-center mt-10">
+    <div class="card mx-auto">
+      <h2 class="text-2xl font-bold">Mes Projets</h2>
+      <p class="mt-2" id="projects-text">Découvrez certains de mes travaux...</p>
     </div>
+  </section>
 
-    <img src="svg/sound0.svg" alt="volume icon" width="20px" height="20px" id="sound" onclick="soundManager()">
+  <footer class="text-center mt-10">
+    <p>Contactez-moi via <a href="mailto:quentin.bauerlin@example.com" class="text-blue-500">email</a></p>
+  </footer>
 
-    <script src="scripts/data.js"></script>
-    <script src="scripts/script1.js"></script>
-    <script src="scripts/script2.js"></script>
-    
-    <audio src="audio/bg.ogg" loop></audio>
+  <script>
+    let language = 'fr'; // Langue par défaut
+    let section = 'home'; // Section par défaut
 
+    // Fonction pour mettre à jour le contenu en fonction de la langue et de la section
+    function updateContent() {
+      const homeText = document.getElementById('home-text');
+      const aboutText = document.getElementById('about-text');
+      const projectsText = document.getElementById('projects-text');
+      const profession = document.getElementById('profession');
+
+      // Mise à jour du texte en fonction de la langue
+      if (language === 'fr') {
+        homeText.textContent = 'Bienvenue sur mon portfolio !';
+        aboutText.textContent = 'Je suis un développeur passionné...';
+        projectsText.textContent = 'Découvrez certains de mes travaux...';
+        profession.textContent = 'Docteur en Chimie des Matériaux';
+      } else {
+        homeText.textContent = 'Welcome to my portfolio!';
+        aboutText.textContent = 'I am a passionate developer...';
+        projectsText.textContent = 'Explore some of my work...';
+        profession.textContent = 'PhD in Materials Chemistry';
+      }
+
+      // Masquer/afficher les sections
+      document.getElementById('about-section').classList.toggle('hidden', section !== 'about');
+      document.getElementById('projects-section').classList.toggle('hidden', section !== 'projects');
+      homeText.classList.toggle('hidden', section !== 'home');
+    }
+
+    // Changer la langue
+    document.getElementById('fr-btn').addEventListener('click', function() {
+      language = 'fr';
+      updateContent();
+    });
+
+    document.getElementById('en-btn').addEventListener('click', function() {
+      language = 'en';
+      updateContent();
+    });
+
+    // Changer la section
+    document.getElementById('about-btn').addEventListener('click', function() {
+      section = 'about';
+      updateContent();
+    });
+
+    document.getElementById('projects-btn').addEventListener('click', function() {
+      section = 'projects';
+      updateContent();
+    });
+
+    // Initialiser le contenu
+    updateContent();
+  </script>
 
 </body>
 </html>
