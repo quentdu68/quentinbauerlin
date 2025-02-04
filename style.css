@@ -1,34 +1,37 @@
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(to bottom, #03055B, #03055B);
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #000; /* Fond noir uni */
+    box-shadow: inset 0 0 100px rgba(0, 0, 255, 0.2); /* Ombre bleue */
 }
 
+/* Conteneur principal */
 .container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
     border: 1px solid #333;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+/* Titres */
 .title {
     text-align: center;
     font-size: 36px;
-    color: #fff;
+    color: #fff; /* Blanc */
     margin-bottom: 10px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 24px;
-    color: #ccc;
+    color: #ccc; /* Gris clair */
     margin-bottom: 20px;
 }
 
+/* Navigation */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -37,7 +40,7 @@ body {
 
 .nav-button {
     background-color: #ff3737; /* Rouge */
-    color: #fff;
+    color: #fff; /* Blanc */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -45,9 +48,10 @@ body {
 }
 
 .nav-button:hover {
-    background-color: #ff6666;
+    background-color: #ff6666; /* Rouge clair */
 }
 
+/* Sélecteur de langue */
 .lang-switcher {
     display: flex;
     justify-content: space-between;
@@ -57,8 +61,8 @@ body {
 }
 
 .lang-button {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #4CAF50; /* Vert */
+    color: #fff; /* Blanc */
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -66,9 +70,10 @@ body {
 }
 
 .lang-button:hover {
-    background-color: #3e8e41;
+    background-color: #3e8e41; /* Vert clair */
 }
 
+/* Sections */
 .section {
     display: none;
 }
@@ -77,12 +82,14 @@ body {
     display: block;
 }
 
+/* Bienvenue */
 .welcome {
     font-size: 18px;
-    color: #fff;
+    color: #fff; /* Blanc */
     margin-bottom: 20px;
 }
 
+/* Liens sociaux */
 .social-links {
     display: flex;
     justify-content: space-between;
@@ -96,33 +103,37 @@ body {
     margin: 0 10px;
 }
 
+/* Titres de sections */
 .section-title {
     font-size: 24px;
-    color: #fff;
+    color: #fff; /* Blanc */
     margin-bottom: 10px;
 }
 
+/* Contenu des sections */
 .about-content {
     font-size: 18px;
-    color: #ccc;
+    color: #ccc; /* Gris clair */
 }
 
+/* Projets */
 .project {
     margin-bottom: 20px;
 }
 
 .project-title {
     font-size: 20px;
-    color: #fff;
+    color: #fff; /* Blanc */
     margin-bottom: 5px;
 }
 
 .project-description {
     font-size: 16px;
-    color: #ccc;
+    color: #ccc; /* Gris clair */
     margin-bottom: 10px;
 }
 
+/* Étiquettes */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -131,7 +142,7 @@ body {
 
 .tag {
     background-color: #ff3737; /* Rouge */
-    color: #fff;
+    color: #fff; /* Blanc */
     padding: 5px 10px;
     border-radius: 5px;
 }
