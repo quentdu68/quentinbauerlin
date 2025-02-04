@@ -11,10 +11,11 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
+/* Entête */
 .header {
   text-align: center;
   padding-top: 50px;
+  margin-bottom: 30px;
 }
 
 .header-title {
@@ -22,7 +23,6 @@ body {
   font-weight: bold;
   letter-spacing: 0.1em;
   font-family: 'Roboto', sans-serif;
-  color: white;
 }
 
 .header-subtitle {
@@ -31,7 +31,7 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Navigation */
+/* Menu de navigation */
 .nav {
   display: flex;
   justify-content: center;
@@ -86,13 +86,16 @@ body {
   color: white;
 }
 
-/* Footer */
+/* Footer avec les boutons de langue */
 .footer {
   text-align: center;
   margin-top: 50px;
 }
 
 .language-buttons {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
