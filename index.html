@@ -1,148 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Gabriel Ghimbeu's Portfolio. He is a great 3D animator">
-    <title>Gabriel Ghimbeu | 3D Animator</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Gabriel Ghimbeu | Portfolio</title>
+    <link rel="stylesheet" href="styles/style1.css"> 
 </head>
 <body>
 
+    <header>Mon portfolio</header>
+    
     <div class="page1">
+        
+        <div class="profile">
 
-        <header>Gabriel Ghimbeu (Work in Progress)</header>
-
-        <!-- <div class="navbar">
-
-            <input type="radio" id="reel" name="uhh" checked>
-            <label for="reel">Reel</label>
-
-            <input type="radio" id="anim3d" name="uhh">
-            <label for="anim3d">3D Animations</label>
-            
-            <div class="dropdown">
-
-                <button class="dropdownButton">Other Pretty Cool Creations</button>
-                <div class="dropdownContent">
-
-                    <input type="radio" id="model3d" name="uhh">
-                    <label for="model3d">3D Models</label>
-
-                    <input type="radio" id="games" name="uhh">
-                    <label for="games">Games</label>
-
-                    <input type="radio" id="illustration" name="uhh">
-                    <label for="illustration">Illustration</label>
-
-                    <input type="radio" id="videos" name="uhh">
-                    <label for="videos">Videos</label>
-
-                    <input type="radio" id="websites" name="uhh">
-                    <label for="websites">Websites</label>
-
-                    <input type="radio" id="cosplay" name="uhh">
-                    <label for="cosplay">Cosplay</label>
-
-                </div>
-
-
+            <img src="images/circle.png" alt="circle" width="400" height="400px" onclick="showDesc()">
+            <div class="profileDesc">Bienvenue sur mon site web portfolio. 
+                <br>Je me prénomme Gabriel Ghimbeu et je suis en 1ère année de BUT Métiers du Multimédia et de l'Internet. Je suis passionné par l'animation 3D et la programmation.
+                <br>Mon rêve ultime serait d'être animateur 3d chez Pixar.
             </div>
-
-            <input type="radio" id="about" name="uhh">
-            <label for="about">About Me</label>
-
-        </div>
-
-        <div class="content">
-
-            <div class="reel">
-
-                <div class="anim3dButton">3D Animations</div>
-                <div class="model3dButton">3D Models</div>
-                <div class="gamesButton">Games</div>
-                <div class="illustrationsButton ">Illustrations</div>  
-    
-            </div>
-    
-            <div class="anim3d off">Animation 3D</div>
-            <div class="about off">A propos</div>
-
-
-        </div> -->
-
-
-        <div class="buttons">
-
-            <div onclick="loadAboutPage()" class="about">About me</div>
-            <div onclick="loadAnimationPage()" class="animation">3D animations</div>
-            <div onclick="loadOtherPage()" class="other">Other personal creations</div>
-    
-        </div>
-
-        <div class="aboutSection">
-
-            <h3>Hi, I'm Gabriel!</h3>
-
-            <p>
-                
-                I am currently in my 2nd year of University Bachelor of Technology, in Multimedia and Internet professions at the IUT of Mulhouse.<br>
-
-                I love creating things, learning and discovering new passions. I am an ambitious and creative person, who tries his best to make his dreams come true.<br>
-
-                In this portfolio, you will find all the creations that I have made, whether it is in the context of my studies or on my free time.
-            
-            </p>
-
-            <div class="aboutSkills">
-
-                <p>Skills :</p>
-
-                <div class="aboutSkillsIcons">
-
-                    <img src="images/icons/blender.svg" alt="" width="50px" height="50px">
-                    <img src="images/icons/html5.svg" alt="" width="50px" height="50px">
-                    <img src="images/icons/css3.svg" alt="" width="50px" height="50px">
-                    <img src="images/icons/premierePro.svg" alt="" width="50px" height="50px">
-                    <img src="images/icons/photoshop.svg" alt="" width="50px" height="50px">
-                    <img src="images/icons/krita.svg" alt="" width="50px" height="50px">
-
-                </div>
-
-            </div>
-
-            <p>Contact :</p>
-
-            <div class="aboutIcons">
-
-                <a href="misc/CV.pdf" target="_blank"><img src="images/icons/cv.png" alt="cv" width="50px" height="50px"></a>
-                <a href="mailto:ghimbeu1@gmail.com"><img src="images/icons/email.svg" alt="email" width="50px" height="50px"></a>
-                <a href="https://www.linkedin.com/in/gabrielghimbeu/" target="_blank"><img src="images/icons/linkedin.svg" alt="linkedin" width="50px" height="50px"></a>
-
-            </div>
-
-            <div onclick="back()" class="aboutBack">◀ Back</div>
-
-        </div>
-
-        <div class="char">
-
-            <img src="images/char.png" alt="char">
-
-        </div>
-
-        <div class="languages" onclick="getId()">
-
-            <img src="images/lang/en.png" alt="en" width="40" height="40" id="en" onclick="en()">
-            <img src="images/lang/fr.png" alt="fr" width="40" height="40" id="fr" onclick="fr()">
-            <img src="images/lang/ro.png" alt="ro" width="40" height="40" id="ro" onclick="ro()">
 
         </div>
 
     </div>
 
-    <script src="scripts/script.js"></script>
-    <script src="scripts/lang.js"></script>
+    <div class="page2">
+
+        <h1>Choissisez votre SAE</h1>
+        <div class="page2content" id="scroll">
+
+            <button onclick="leftClick()">❰</button>
+            <div class="textStuff" id="scrollSwag">
+
+                <h3 class="saeName">SAE</h3>
+                <div class="saeDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia vitae in libero optio id dolor sunt inventore soluta dicta qui accusamus, rerum numquam labore adipisci eaque! Vel reprehenderit id repellat.</div>
+                
+                <div class="statContainer">
+                    
+                    <div class="stat1">
+
+                        <img src="svg/sword.svg" alt="atk" width="20px" height="20px">
+                        <div class="stat1bar"></div>
     
+                    </div>
+                    <div class="stat2">
+    
+                        <img src="svg/heart.svg" alt="hp" width="20px" height="20px">
+                        <div class="stat2bar"></div>
+    
+                    </div>
+                    <div class="stat3">
+    
+                        <img src="svg/thunder.svg" alt="spd" width="20px" height="20px">
+                        <div class="stat3bar"></div>
+    
+                    </div>
+
+                </div>
+
+            </div>
+            <img src="images/sae101.png" alt="Character Image" class="charImage">
+            <button onclick="rightClick()">❱</button>
+
+        </div>
+        
+        <div class="selectButton" onclick="selectButton()">Sélectionner</div>
+
+    </div>
+
+    <img src="svg/sound0.svg" alt="volume icon" width="20px" height="20px" id="sound" onclick="soundManager()">
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/script1.js"></script>
+    <script src="scripts/script2.js"></script>
+    
+    <audio src="audio/bg.ogg" loop></audio>
+
+
 </body>
 </html>
