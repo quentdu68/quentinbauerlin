@@ -5,39 +5,123 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
-/* Titres */
-h1, h2 {
+/* Header */
+.header {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.header-title {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-family: 'Roboto', sans-serif;
   color: white;
 }
 
-/* Style pour les boutons */
-button {
+.header-subtitle {
+  font-size: 1.5rem;
+  color: gray;
+  margin-top: 0.5rem;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.nav-button {
   background-color: #ff5c5c;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   cursor: pointer;
   margin: 10px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.nav-button:hover {
   background-color: #ff2a2a;
 }
 
-/* Style pour les sections */
+/* Contenu principal */
+.main-content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.main-text {
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Sections */
+.section {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+}
+
 .card {
   background-color: #333;
   padding: 20px;
   border-radius: 8px;
   width: 80%;
   max-width: 400px;
-  margin: 20px auto;
+  margin: 0 auto;
   color: white;
 }
 
-/* Cacher les sections invisibles */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.language-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.lang-button {
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.lang-button:hover {
+  color: #ff5c5c;
+}
+
+.email-link {
+  color: #ff5c5c;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Masquer les sections invisibles */
 .hidden {
   display: none;
 }
