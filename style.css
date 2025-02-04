@@ -1,28 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: linear-gradient(to bottom, #03055B, #03055B);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .title {
     text-align: center;
     font-size: 36px;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 24px;
-    color: #666;
+    color: #ccc;
     margin-bottom: 20px;
 }
 
@@ -33,7 +36,7 @@ body {
 }
 
 .nav-button {
-    background-color: #4CAF50;
+    background-color: #ff3737; /* Rouge */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -42,7 +45,7 @@ body {
 }
 
 .nav-button:hover {
-    background-color: #3e8e41;
+    background-color: #ff6666;
 }
 
 .lang-switcher {
@@ -76,6 +79,7 @@ body {
 
 .welcome {
     font-size: 18px;
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -94,11 +98,13 @@ body {
 
 .section-title {
     font-size: 24px;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .about-content {
     font-size: 18px;
+    color: #ccc;
 }
 
 .project {
@@ -107,11 +113,13 @@ body {
 
 .project-title {
     font-size: 20px;
+    color: #fff;
     margin-bottom: 5px;
 }
 
 .project-description {
     font-size: 16px;
+    color: #ccc;
     margin-bottom: 10px;
 }
 
@@ -122,7 +130,7 @@ body {
 }
 
 .tag {
-    background-color: #4CAF50;
+    background-color: #ff3737; /* Rouge */
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
