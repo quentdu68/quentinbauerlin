@@ -69,7 +69,8 @@
                 "ImageJ",
                 "COMSOL Multiphysics",
                 "Gwyddion",
-                "Zotero, MATLAB"
+                "Zotero",
+                "MATLAB"
             ],
             en: [
                 "Microsoft Office",
@@ -79,7 +80,8 @@
                 "ImageJ",
                 "COMSOL Multiphysics",
                 "Gwyddion",
-                "Zotero, MATLAB"
+                "Zotero",
+                "MATLAB"
             ]
         };
 
@@ -106,21 +108,24 @@
                 </p>
 
                 {section === "about" && (
-                    <div className="bg-gray-800 p-6 rounded-lg mt-6 text-center">
-                        <h3 className="text-2xl font-mono mb-4">{language === "fr" ? "Salut, je suis Quentin !" : "Hi, I'm Quentin!"}</h3>
+                    <div className="bg-gray-800 p-8 rounded-lg mt-6 max-w-3xl w-full shadow-lg">
+                        <div className="flex justify-center mb-6">
+                            <img className="w-32 h-32 rounded-full border-4 border-red-600" src="https://via.placeholder.com/150" alt="Quentin's photo" />
+                        </div>
+                        <h3 className="text-2xl font-mono mb-4 text-center text-red-600">{language === "fr" ? "Salut, je suis Quentin !" : "Hi, I'm Quentin!"}</h3>
                         <p className="text-lg font-mono text-justify">{description[language]}</p>
 
-                        <h4 className="text-xl font-mono mt-6">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                        <ul className="list-disc pl-8 mt-2">
+                        <h4 className="text-xl font-mono mt-6 text-center text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
+                        <ul className="list-disc pl-8 mt-2 text-lg font-mono">
                             {methods[language].map((method, index) => (
-                                <li key={index} className="text-lg font-mono text-justify">{method}</li>
+                                <li key={index} className="text-justify">{method}</li>
                             ))}
                         </ul>
 
-                        <h4 className="text-xl font-mono mt-6">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
-                        <ul className="list-disc pl-8 mt-2">
+                        <h4 className="text-xl font-mono mt-6 text-center text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
+                        <ul className="list-disc pl-8 mt-2 text-lg font-mono">
                             {computerSkills[language].map((skill, index) => (
-                                <li key={index} className="text-lg font-mono text-justify">{skill}</li>
+                                <li key={index} className="text-justify">{skill}</li>
                             ))}
                         </ul>
                     </div>
