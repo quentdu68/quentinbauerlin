@@ -4,124 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quentin Bauerlin - Portfolio</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-gray-900 text-white">
+    <div class="container">
+        <!-- Header -->
+        <header class="text-center py-10">
+            <h1 class="text-5xl font-bold uppercase">Quentin Bauerlin</h1>
+            <h2 class="text-xl mt-2">PhD in Materials Chemistry</h2>
+        </header>
 
-    <script type="text/babel">
-        function Portfolio() {
-            const [language, setLanguage] = React.useState("en");
-            const [section, setSection] = React.useState("home");
-
-            return (
-                <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900 text-white flex flex-col items-center justify-center space-y-6">
-                    <h1 className="text-5xl font-bold uppercase font-mono tracking-widest">
-                        Quentin Bauerlin
-                    </h1>
-                    <h2 className="text-xl font-mono text-gray-400">
-                        {language === "fr" ? "Docteur en Chimie des Matériaux" : "PhD in Materials Chemistry"}
-                    </h2>
-
-                    <div className="flex flex-col space-y-4">
-                        <button onClick={() => setSection("about")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
-                            {language === "fr" ? "À propos" : "About"}
-                        </button>
-                    </div>
-
-                    <p className="text-lg font-mono mt-6">
-                        {language === "fr" ? "Bienvenue sur mon portfolio !" : "Welcome to my portfolio!"}
-                    </p>
-
-                    <div className="absolute bottom-4 left-4 flex space-x-2 text-sm">
-                        <button onClick={() => setLanguage("fr")} className="hover:text-gray-400">FR</button>
-                        <button onClick={() => setLanguage("en")} className="hover:text-gray-400">EN</button>
-                    </div>
+        <!-- Section About -->
+        <div id="about" class="py-12">
+            <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0">
+                <!-- Photo -->
+                <div class="flex-shrink-0">
+                    <img src="https://github.com/quentdu68/quentinbauerlin/blob/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg?raw=true" class="rounded-full w-40 h-40 object-cover" alt="Quentin Bauerlin" />
                 </div>
 
-                {/* Section About (s'affiche quand le bouton "About" est cliqué) */}
-                {section === "about" && (
-                    <div className="bg-gray-800 text-white p-8 mt-6 w-full">
-                        <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0">
-                            {/* Photo à gauche */}
-                            <div className="flex-shrink-0">
-                                <img src="https://github.com/quentdu68/quentinbauerlin/blob/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg?raw=true" className="rounded-full w-40 h-40 object-cover" alt="Quentin Bauerlin" />
-                            </div>
+                <!-- Description -->
+                <div class="text-center md:text-left md:ml-8">
+                    <h3 class="text-3xl font-semibold">Hi, I'm Quentin!</h3>
+                    <p class="mt-4 text-lg">
+                        If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing.
+                    </p>
+                    <p class="mt-4 text-lg">
+                        My passion for science led me to follow a scientific course up to doctorate level.
+                    </p>
+                    <p class="mt-4 text-lg">
+                        My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person.
+                    </p>
 
-                            {/* Description à droite */}
-                            <div className="text-center md:text-left md:ml-8">
-                                <h3 className="text-3xl font-semibold">{language === "fr" ? "Salut, je suis Quentin !" : "Hi, I'm Quentin!"}</h3>
-                                <p className="mt-4 text-lg font-mono">
-                                    {language === "fr" ? "Si je devais me décrire succinctement, je me décrirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail en équipe et le partage." : "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing."}
-                                </p>
-                                <p className="mt-4 text-lg font-mono">
-                                    {language === "fr" ? "Ma passion pour la science m'a conduit à suivre un cursus scientifique jusqu'au niveau doctorat." : "My passion for science led me to follow a scientific course up to doctorate level."}
-                                </p>
-                                <p className="mt-4 text-lg font-mono">
-                                    {language === "fr" ? "Si je devais détailler mes compétences professionnelles, je vous renverrais à mon CV, car il serait trop détaillé de tout lister ici." : "If I were to go into more detail about my professional skills, I'd refer you to my CV, as listing them all here would be too detailed."}
-                                </p>
-                                <p className="mt-4 text-lg font-mono">
-                                    {language === "fr" ? "Ma passion ne se limite pas à la science, elle s'étend également à d'autres domaines comme la musique et le dessin, ce qui enrichit mes interactions sociales et fait de moi une personne très sociable." : "My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person."}
-                                </p>
+                    <!-- Fun Fact -->
+                    <p class="mt-6 text-lg font-semibold">
+                        Fun fact: I wear red Converse all the time!
+                    </p>
+                </div>
+            </div>
+        </div>
 
-                                {/* Fun Fact */}
-                                <p className="mt-6 font-semibold">
-                                    {language === "fr" ? "Fun fact : Je porte toujours des Converse rouges !" : "Fun fact : I wear red Converse all the time"}
-                                </p>
+        <!-- Methods of Characterization and Computer Skills -->
+        <div class="py-12">
+            <h4 class="text-2xl font-bold text-red-600">Methods of Characterization</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <ul class="list-disc list-inside">
+                    <li>Fourier transform IR spectroscopy</li>
+                    <li>UV-visible spectroscopy</li>
+                    <li>Raman spectroscopy</li>
+                    <li>TEM</li>
+                    <li>SEM / EDX</li>
+                    <li>DSC / TGA</li>
+                    <li>DLS / Zeta potential</li>
+                    <li>Rheometer (viscosity/photo-rheology)</li>
+                </ul>
+                <ul class="list-disc list-inside">
+                    <li>Mechanical traction / compression</li>
+                    <li>Thermal camera</li>
+                    <li>XRD</li>
+                    <li>AFM</li>
+                    <li>HPLC</li>
+                    <li>H-NMR</li>
+                    <li>Electrochemistry: CV/GCPL</li>
+                </ul>
+            </div>
 
-                                {/* Methods of Characterization */}
-                                <h4 className="text-2xl font-bold text-red-600 mt-8">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                    <ul className="list-disc list-inside space-y-2">
-                                        <li>Fourier transform IR spectroscopy</li>
-                                        <li>UV-visible spectroscopy</li>
-                                        <li>Raman spectroscopy</li>
-                                        <li>TEM</li>
-                                        <li>SEM / EDX</li>
-                                        <li>DSC / TGA</li>
-                                        <li>DLS / Zeta potential</li>
-                                        <li>Rheometer (viscosity/photo-rheology)</li>
-                                    </ul>
-                                    <ul className="list-disc list-inside space-y-2">
-                                        <li>Mechanical traction / compression</li>
-                                        <li>Thermal camera</li>
-                                        <li>XRD</li>
-                                        <li>AFM</li>
-                                        <li>HPLC</li>
-                                        <li>H-NMR</li>
-                                        <li>Electrochemistry: CV/GCPL</li>
-                                    </ul>
-                                </div>
-
-                                {/* Computer Skills */}
-                                <h4 className="text-2xl font-bold text-red-600 mt-8">{language === "fr" ? "Compétences informatiques" : "Computer Skills"}</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                    <ul className="list-disc list-inside space-y-2">
-                                        <li>Pack office</li>
-                                        <li>Origin</li>
-                                        <li>Blender</li>
-                                        <li>ChemDraw / ChemSketch</li>
-                                        <li>ImageJ</li>
-                                        <li>COMSOL Multiphysics</li>
-                                    </ul>
-                                    <ul className="list-disc list-inside space-y-2">
-                                        <li>Gwyddion</li>
-                                        <li>Zotero</li>
-                                        <li>Matlab</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            );
-        }
-
-        ReactDOM.render(<Portfolio />, document.getElementById('root'));
-    </script>
+            <h4 class="text-2xl font-bold text-red-600 mt-8">Computer Skills</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <ul class="list-disc list-inside">
+                    <li>Pack office</li>
+                    <li>Origin</li>
+                    <li>Blender</li>
+                    <li>ChemDraw / ChemSketch</li>
+                    <li>ImageJ</li>
+                    <li>COMSOL Multiphysics</li>
+                </ul>
+                <ul class="list-disc list-inside">
+                    <li>Gwyddion</li>
+                    <li>Zotero</li>
+                    <li>Matlab</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
