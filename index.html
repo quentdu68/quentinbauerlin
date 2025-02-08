@@ -103,41 +103,45 @@
 
                         {/* Methods of characterization and Computer skills section */}
                         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-12">
-                            {/* Methods of Characterization */}
+                            {/* Methods of Characterization on the left */}
                             <div>
                                 <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                                <ul className="list-disc list-inside mt-4 space-y-2">
-                                    <li>Fourier transform IR spectroscopy</li>
-                                    <li>UV-visible spectroscopy</li>
-                                    <li>Raman spectroscopy</li>
-                                    <li>TEM</li>
-                                    <li>SEM / EDX</li>
-                                    <li>DSC / TGA</li>
-                                    <li>DLS / Zeta potential</li>
-                                    <li>Rheometer (viscosity/photo-rheology)</li>
-                                    <li>Mechanical traction / compression</li>
-                                    <li>Thermal camera</li>
-                                    <li>XRD</li>
-                                    <li>AFM</li>
-                                    <li>HPLC</li>
-                                    <li>H-NMR</li>
-                                    <li>Electrochemistry: CV/GCPL</li>
-                                </ul>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                    <ul className="list-disc list-inside space-y-2">
+                                        <li>Fourier transform IR spectroscopy</li>
+                                        <li>UV-visible spectroscopy</li>
+                                        <li>Raman spectroscopy</li>
+                                        <li>TEM</li>
+                                        <li>SEM / EDX</li>
+                                        <li>DSC / TGA</li>
+                                        <li>DLS / Zeta potential</li>
+                                    </ul>
+                                    <ul className="list-disc list-inside space-y-2">
+                                        <li>Rheometer (viscosity/photo-rheology)</li>
+                                        <li>Mechanical traction / compression</li>
+                                        <li>Thermal camera</li>
+                                        <li>XRD</li>
+                                        <li>AFM</li>
+                                        <li>HPLC</li>
+                                        <li>H-NMR</li>
+                                        <li>Electrochemistry: CV/GCPL</li>
+                                    </ul>
+                                </div>
                             </div>
 
-                            {/* Computer Skills */}
-                            <div className="md:pl-12">
+                            {/* Computer Skills on the right */}
+                            <div>
                                 <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
                                 <ul className="list-disc list-inside mt-4 space-y-2">
-                                    <li>Pack office</li>
-                                    <li>Origin</li>
-                                    <li>Blender</li>
-                                    <li>ChemDraw / ChemSketch</li>
-                                    <li>ImageJ</li>
-                                    <li>COMSOL Multiphysics</li>
-                                    <li>Gwyddion</li>
-                                    <li>Zotero</li>
-                                    <li>Matlab</li>
+                                    <li>Python (pandas, numpy, matplotlib, seaborn, scikit-learn, etc.)</li>
+                                    <li>MATLAB</li>
+                                    <li>OriginLab</li>
+                                    <li>LaTeX</li>
+                                    <li>Jupyter Notebooks</li>
+                                    <li>SQL</li>
+                                    <li>Git & GitHub</li>
+                                    <li>Linux/Unix</li>
+                                    <li>Windows OS</li>
                                 </ul>
                             </div>
                         </div>
@@ -148,9 +152,6 @@
     }
 
     ReactDOM.render(<Portfolio />, document.getElementById('root'));
-    
-    // Chargement des icônes Lucide
-    lucide.createIcons();
     </script>
 </body>
 </html>
