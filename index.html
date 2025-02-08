@@ -63,78 +63,66 @@
 
                 {/* About section */}
                 {section === "about" && (
-                    <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4 ml-16"> {/* Added ml-16 to shift right */}
-                        {/* Aligning the photo */}
-                        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
-                            <img className="w-full h-full object-cover" 
-                                src="https://github.com/quentdu68/quentinbauerlin/raw/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg" 
-                                alt="Quentin's photo" />
+                    <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4 ml-16">
+                        {/* First Line: Photo on the left, Text on the right */}
+                        <div className="flex flex-col md:flex-row items-center space-x-6 w-full">
+                            {/* Photo */}
+                            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+                                <img className="w-full h-full object-cover" 
+                                    src="https://github.com/quentdu68/quentinbauerlin/raw/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg" 
+                                    alt="Quentin's photo" />
+                            </div>
+
+                            {/* Text */}
+                            <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left mt-6 md:mt-0 w-full">
+                                <h3 className="text-3xl font-bold text-red-600">{language === "fr" ? "À propos de moi" : "About me"}</h3>
+                                <p className="max-w-3xl text-lg text-justify leading-relaxed">
+                                    {language === "fr" ? 
+                                        "Si je devais me décrire succinctement, je me définirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail en équipe et le partage. Ma passion pour la science m'a conduit à suivre un parcours scientifique jusqu'au niveau du doctorat. Au cours de cette expérience, j'ai redécouvert tous les aspects que j'apprécie dans la science, tels que les avancées technologiques et le partage d'idées au sein d'une équipe dynamique, ce qui permet des progrès rapides sur de nombreux projets." : 
+                                        "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing. My passion for science led me to follow a scientific course up to doctorate level. During this experience, I rediscovered all the aspects that I appreciate in science, such as technological advances and the sharing of ideas within a dynamic team, which encourages rapid progress on many projects."
+                                    }
+                                </p>
+                            </div>
                         </div>
-                        
-                        {/* About text */}
-                        <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left mt-6 md:mt-0">
-                            <h3 className="text-3xl font-bold text-red-600">{language === "fr" ? "À propos de moi" : "About me"}</h3>
-                            <p className="max-w-3xl text-lg text-justify leading-relaxed">
-                                {language === "fr" ? 
-                                    "Si je devais me décrire succinctement, je me définirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail en équipe et le partage. Ma passion pour la science m'a conduit à suivre un parcours scientifique jusqu'au niveau du doctorat. Au cours de cette expérience, j'ai redécouvert tous les aspects que j'apprécie dans la science, tels que les avancées technologiques et le partage d'idées au sein d'une équipe dynamique, ce qui permet des progrès rapides sur de nombreux projets." : 
-                                    "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing. My passion for science led me to follow a scientific course up to doctorate level. During this experience, I rediscovered all the aspects that I appreciate in science, such as technological advances and the sharing of ideas within a dynamic team, which encourages rapid progress on many projects."
-                                }
-                            </p>
-                            <p className="max-w-3xl text-lg text-justify leading-relaxed mt-4">
-                                {language === "fr" ? 
-                                    "Un doctorat offre l'avantage d'une formation 100% approfondie sur un sujet, encadrée par des experts qui partagent toutes les clés de la réussite professionnelle à court et long terme." : 
-                                    "A PhD offers the advantage of 100% in-depth training in a subject, supervised by experts who share all the keys to professional success in both the short and long term."
-                                }
-                            </p>
-                            <p className="max-w-3xl text-lg text-justify leading-relaxed mt-4">
-                                {language === "fr" ? 
-                                    "Ma passion ne se limite pas à la science, elle s'étend aussi à d'autres domaines comme la musique et le dessin, ce qui enrichit mes interactions sociales et m'aide à être une personne très sociable." : 
-                                    "My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person."
-                                }
-                            </p>
 
-                            {/* Fun fact section */}
-                            <p className="mt-4 text-lg italic">
-                                <span className="text-red-600">Fun fact:</span> {language === "fr" ? "Je porte des Converse rouges tout le temps !" : "I wear red Converse all the time!"}
-                            </p>
-                            
-                            {/* Methods of characterization and Computer skills section */}
-                            <div className="mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
-                                <div className="w-full md:w-1/2">
-                                    <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                                    <ul className="list-disc list-inside mt-4 space-y-2">
-                                        <li>Fourier transform IR spectroscopy</li>
-                                        <li>UV-visible spectroscopy</li>
-                                        <li>Raman spectroscopy</li>
-                                        <li>TEM</li>
-                                        <li>SEM / EDX</li>
-                                        <li>DSC / TGA</li>
-                                        <li>DLS / Zeta potential</li>
-                                        <li>Rheometer (viscosity/photo-rheology)</li>
-                                        <li>Mechanical traction / compression</li>
-                                        <li>Thermal camera</li>
-                                        <li>XRD</li>
-                                        <li>AFM</li>
-                                        <li>HPLC</li>
-                                        <li>H-NMR</li>
-                                        <li>Electrochemistry: CV/GCPL</li>
-                                    </ul>
-                                </div>
+                        {/* Second Line: Methods of Characterization on the left, Computer Skills on the right */}
+                        <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12 w-full">
+                            {/* Methods of Characterization */}
+                            <div className="w-full md:w-1/2">
+                                <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
+                                <ul className="list-disc list-inside mt-4 space-y-2">
+                                    <li>Fourier transform IR spectroscopy</li>
+                                    <li>UV-visible spectroscopy</li>
+                                    <li>Raman spectroscopy</li>
+                                    <li>TEM</li>
+                                    <li>SEM / EDX</li>
+                                    <li>DSC / TGA</li>
+                                    <li>DLS / Zeta potential</li>
+                                    <li>Rheometer (viscosity/photo-rheology)</li>
+                                    <li>Mechanical traction / compression</li>
+                                    <li>Thermal camera</li>
+                                    <li>XRD</li>
+                                    <li>AFM</li>
+                                    <li>HPLC</li>
+                                    <li>H-NMR</li>
+                                    <li>Electrochemistry: CV/GCPL</li>
+                                </ul>
+                            </div>
 
-                                <div className="w-full md:w-1/2">
-                                    <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
-                                    <ul className="list-disc list-inside mt-4 space-y-2">
-                                        <li>Pack office</li>
-                                        <li>Origin</li>
-                                        <li>Blender</li>
-                                        <li>ChemDraw / ChemSketch</li>
-                                        <li>ImageJ</li>
-                                        <li>COMSOL Multiphysics</li>
-                                        <li>Gwyddion</li>
-                                        <li>Zotero</li>
-                                        <li>Matlab</li>
-                                    </ul>
-                                </div>
+                            {/* Computer Skills */}
+                            <div className="w-full md:w-1/2">
+                                <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
+                                <ul className="list-disc list-inside mt-4 space-y-2">
+                                    <li>Pack office</li>
+                                    <li>Origin</li>
+                                    <li>Blender</li>
+                                    <li>ChemDraw / ChemSketch</li>
+                                    <li>ImageJ</li>
+                                    <li>COMSOL Multiphysics</li>
+                                    <li>Gwyddion</li>
+                                    <li>Zotero</li>
+                                    <li>Matlab</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
