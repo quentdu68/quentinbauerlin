@@ -97,48 +97,50 @@
                             <p className="mt-4 text-lg italic">
                                 <span className="text-red-600">Fun fact:</span> {language === "fr" ? "Je porte des Converse rouges tout le temps !" : "I wear red Converse all the time!"}
                             </p>
-                            
-                            {/* Methods of characterization and Computer skills section */}
-                            <div className="mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
-                                <div className="w-full md:w-1/2">
-                                    <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                                    <ul className="list-disc list-inside mt-4 space-y-2">
-                                        <li>Fourier transform IR spectroscopy</li>
-                                        <li>UV-visible spectroscopy</li>
-                                        <li>Raman spectroscopy</li>
-                                        <li>TEM</li>
-                                        <li>SEM / EDX</li>
-                                        <li>DSC / TGA</li>
-                                        <li>DLS / Zeta potential</li>
-                                        <li>Rheometer (viscosity/photo-rheology)</li>
-                                        <li>Mechanical traction / compression</li>
-                                        <li>Thermal camera</li>
-                                        <li>XRD</li>
-                                        <li>AFM</li>
-                                        <li>HPLC</li>
-                                        <li>H-NMR</li>
-                                        <li>Electrochemistry: CV/GCPL</li>
-                                    </ul>
-                                </div>
-
-                                <div className="w-full md:w-1/2">
-                                    <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
-                                    <ul className="list-disc list-inside mt-4 space-y-2">
-                                        <li>Pack office</li>
-                                        <li>Origin</li>
-                                        <li>Blender</li>
-                                        <li>ChemDraw / ChemSketch</li>
-                                        <li>ImageJ</li>
-                                        <li>COMSOL Multiphysics</li>
-                                        <li>Gwyddion</li>
-                                        <li>Zotero</li>
-                                        <li>Matlab</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 )}
+
+                {/* Methods of characterization and Computer skills section */}
+                <div className="mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
+                    {/* Methods of characterization */}
+                    <div className="w-full md:w-1/2">
+                        <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
+                        <ul className="list-disc list-inside mt-4 space-y-2">
+                            <li>Fourier transform IR spectroscopy</li>
+                            <li>UV-visible spectroscopy</li>
+                            <li>Raman spectroscopy</li>
+                            <li>TEM</li>
+                            <li>SEM / EDX</li>
+                            <li>DSC / TGA</li>
+                            <li>DLS / Zeta potential</li>
+                            <li>Rheometer (viscosity/photo-rheology)</li>
+                            <li>Mechanical traction / compression</li>
+                            <li>Thermal camera</li>
+                            <li>XRD</li>
+                            <li>AFM</li>
+                            <li>HPLC</li>
+                            <li>H-NMR</li>
+                            <li>Electrochemistry: CV/GCPL</li>
+                        </ul>
+                    </div>
+
+                    {/* Computer skills */}
+                    <div className="w-full md:w-1/2">
+                        <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
+                        <ul className="list-disc list-inside mt-4 space-y-2">
+                            <li>Pack office</li>
+                            <li>Origin</li>
+                            <li>Blender</li>
+                            <li>ChemDraw / ChemSketch</li>
+                            <li>ImageJ</li>
+                            <li>COMSOL Multiphysics</li>
+                            <li>Gwyddion</li>
+                            <li>Zotero</li>
+                            <li>Matlab</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         );
     }
