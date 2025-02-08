@@ -63,8 +63,8 @@
 
                 {/* About section */}
                 {section === "about" && (
-                    <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4 ml-16">
-                        {/* First Line: Photo on the left, Text on the right */}
+                    <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4">
+                        {/* First Line: Photo and Text */}
                         <div className="flex flex-col md:flex-row items-center space-x-6 w-full">
                             {/* Photo */}
                             <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
@@ -85,8 +85,8 @@
                             </div>
                         </div>
 
-                        {/* Second Line: Methods of Characterization on the left, Computer Skills on the right */}
-                        <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12 w-full">
+                        {/* Second Line: Methods of Characterization and Computer Skills */}
+                        <div className="flex flex-col md:flex-row justify-between w-full space-y-8 md:space-y-0">
                             {/* Methods of Characterization */}
                             <div className="w-full md:w-1/2">
                                 <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
