@@ -65,7 +65,7 @@
                 {section === "about" && (
                     <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4">
                         {/* Aligning the photo */}
-                        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+                        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 mt-4">
                             <img className="w-full h-full object-cover" 
                                 src="https://github.com/quentdu68/quentinbauerlin/raw/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg" 
                                 alt="Quentin's photo" />
@@ -99,8 +99,9 @@
                             </p>
                             
                             {/* Methods of characterization and Computer skills section */}
-                            <div className="mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
-                                <div className="w-full md:w-1/2">
+                            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                                {/* Methods of Characterization */}
+                                <div>
                                     <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
                                     <ul className="list-disc list-inside mt-4 space-y-2">
                                         <li>Fourier transform IR spectroscopy</li>
@@ -109,11 +110,6 @@
                                         <li>TEM</li>
                                         <li>SEM / EDX</li>
                                         <li>DSC / TGA</li>
-                                    </ul>
-                                </div>
-
-                                <div className="w-full md:w-1/2">
-                                    <ul className="list-disc list-inside mt-4 space-y-2">
                                         <li>DLS / Zeta potential</li>
                                         <li>Rheometer (viscosity/photo-rheology)</li>
                                         <li>Mechanical traction / compression</li>
@@ -125,11 +121,9 @@
                                         <li>Electrochemistry: CV/GCPL</li>
                                     </ul>
                                 </div>
-                            </div>
 
-                            {/* Computer Skills section */}
-                            <div className="mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
-                                <div className="w-full md:w-1/2">
+                                {/* Computer Skills */}
+                                <div>
                                     <h4 className="text-2xl font-bold text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
                                     <ul className="list-disc list-inside mt-4 space-y-2">
                                         <li>Pack office</li>
