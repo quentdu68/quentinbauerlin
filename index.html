@@ -8,181 +8,52 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'mono': ['ui-monospace', 'SFMono-Regular']
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
-    const content = {
-        fr: {
-            title: "Docteur en Chimie des Matériaux",
-            about: {
-                title: "À propos de moi",
-                content: "Je suis un développeur passionné par la création d'applications web modernes. Mon parcours en chimie des matériaux m'a permis de développer une approche analytique et structurée de la résolution de problèmes."
-            },
-            projects: {
-                title: "Mes Projets",
-                items: [
-                    {
-                        title: "Analyse de Matériaux",
-                        description: "Développement d'une application web pour l'analyse de données de matériaux",
-                        tags: ["React", "Python", "Machine Learning"]
-                    },
-                    {
-                        title: "Portfolio Personnel",
-                        description: "Site web personnel développé avec React et Tailwind CSS",
-                        tags: ["React", "Tailwind", "JavaScript"]
-                    }
-                ]
-            }
-        },
-        en: {
-            title: "PhD in Materials Chemistry",
-            about: {
-                title: "About Me",
-                content: "I am a developer passionate about creating modern web applications. My background in materials chemistry has given me an analytical and structured approach to problem solving."
-            },
-            projects: {
-                title: "My Projects",
-                items: [
-                    {
-                        title: "Materials Analysis",
-                        description: "Web application for materials data analysis",
-                        tags: ["React", "Python", "Machine Learning"]
-                    },
-                    {
-                        title: "Personal Portfolio",
-                        description: "Personal website developed with React and Tailwind CSS",
-                        tags: ["React", "Tailwind", "JavaScript"]
-                    }
-                ]
-            }
-        }
-    };
-
     function Portfolio() {
         const [language, setLanguage] = React.useState("en");
         const [section, setSection] = React.useState("home");
 
-        const t = content[language];
-
         return (
-            <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900 text-white p-8 flex flex-col items-center justify-center space-y-6">
-                <h1 className="text-5xl font-bold text-center uppercase font-mono tracking-widest">
+            <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900 text-white flex flex-col items-center justify-center space-y-6">
+                <h1 className="text-5xl font-bold uppercase font-mono tracking-widest">
                     Quentin Bauerlin
                 </h1>
-                <h2 className="text-2xl font-mono text-gray-400">{t.title}</h2>
-                
-                <nav className="flex flex-col space-y-4">
-                    <button 
-                        onClick={() => setSection("about")} 
-                        className="bg-red-600 hover:bg-red-800 px-6 py-3 text-xl uppercase font-bold border-2 border-white"
-                    >
+                <h2 className="text-xl font-mono text-gray-400">
+                    {language === "fr" ? "Docteur en Chimie des Matériaux" : "PhD in Materials Chemistry"}
+                </h2>
+
+                <div className="flex flex-col space-y-4">
+                    <button onClick={() => setSection("about")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
                         {language === "fr" ? "À propos" : "About"}
                     </button>
-                    <button 
-                        onClick={() => setSection("projects")} 
-                        className="bg-red-600 hover:bg-red-800 px-6 py-3 text-xl uppercase font-bold border-2 border-white"
-                    >
+                    <button onClick={() => setSection("projects")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
                         {language === "fr" ? "Projets" : "Projects"}
                     </button>
-                </nav>
-                
-                <div className="mt-10 text-center">
-                    {section === "home" && (
-                        <div className="space-y-8">
-                            <p className="text-lg font-mono">
-                                {language === "fr" ? "Bienvenue sur mon portfolio !" : "Welcome to my portfolio!"}
-                            </p>
-                            <div className="flex justify-center space-x-6">
-                                <a 
-                                    href="https://github.com" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="text-red-600 hover:text-red-400 transition-colors"
-                                >
-                                    GitHub
-                                </a>
-                                <a 
-                                    href="https://linkedin.com" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="text-red-600 hover:text-red-400 transition-colors"
-                                >
-                                    LinkedIn
-                                </a>
-                                <a 
-                                    href="mailto:contact@example.com"
-                                    className="text-red-600 hover:text-red-400 transition-colors"
-                                >
-                                    Mail
-                                </a>
-                            </div>
-                        </div>
-                    )}
-                    
-                    {section === "about" && (
-                        <div className="w-96 bg-gray-900 text-white border border-gray-700 p-4 rounded">
-                            <h2 className="text-2xl font-bold">
-                                {language === "fr" ? "À propos de moi" : "About Me"}
-                            </h2>
-                            <p className="mt-2">{t.about.content}</p>
-                        </div>
-                    )}
-                    
-                    {section === "projects" && (
-                        <div className="w-96 bg-gray-900 text-white border border-gray-700 p-4 rounded">
-                            <h2 className="text-2xl font-bold">
-                                {language === "fr" ? "Mes Projets" : "My Projects"}
-                            </h2>
-                            <div className="space-y-4 mt-4">
-                                {t.projects.items.map((project, index) => (
-                                    <div key={index} className="space-y-2">
-                                        <h3 className="text-xl font-semibold text-red-500">
-                                            {project.title}
-                                        </h3>
-                                        <p>{project.description}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {project.tags.map((tag, tagIndex) => (
-                                                <span 
-                                                    key={tagIndex} 
-                                                    className="bg-red-600 text-white px-2 py-1 rounded text-sm"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
                 </div>
-                
-                <div className="absolute bottom-4 left-4 flex space-x-2">
-                    <button 
-                        onClick={() => setLanguage("fr")} 
-                        className="bg-transparent border-none text-2xl"
-                    >
-                        🇫🇷
-                    </button>
-                    <button 
-                        onClick={() => setLanguage("en")} 
-                        className="bg-transparent border-none text-2xl"
-                    >
-                        🇬🇧
-                    </button>
+
+                <p className="text-lg font-mono mt-6">
+                    {language === "fr" ? "Bienvenue sur mon portfolio !" : "Welcome to my portfolio!"}
+                </p>
+
+                <div className="flex space-x-6 mt-4">
+                    <a href="https://github.com/ton-profil" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" className="w-8 h-8 text-red-500" />
+                    </a>
+                    <a href="https://linkedin.com/in/ton-profil" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" className="w-8 h-8 text-red-500" />
+                    </a>
+                    <a href="mailto:contact@example.com">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" className="w-8 h-8 text-red-500" />
+                    </a>
+                </div>
+
+                <div className="absolute bottom-4 left-4 flex space-x-2 text-sm">
+                    <button onClick={() => setLanguage("fr")} className="hover:text-gray-400">FR</button>
+                    <button onClick={() => setLanguage("en")} className="hover:text-gray-400">GB</button>
                 </div>
             </div>
         );
