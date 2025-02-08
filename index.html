@@ -64,11 +64,14 @@
                 {/* About section */}
                 {section === "about" && (
                     <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4">
+                        {/* Aligning the photo */}
                         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
                             <img className="w-full h-full object-cover" 
                                 src="https://github.com/quentdu68/quentinbauerlin/raw/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg" 
                                 alt="Quentin's photo" />
                         </div>
+                        
+                        {/* About text */}
                         <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left mt-6 md:mt-0">
                             <h3 className="text-3xl font-bold text-red-600">{language === "fr" ? "À propos de moi" : "About me"}</h3>
                             <p className="max-w-3xl text-lg text-justify leading-relaxed">
