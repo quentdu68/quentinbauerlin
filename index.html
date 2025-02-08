@@ -18,73 +18,6 @@
         const [language, setLanguage] = React.useState("en");
         const [section, setSection] = React.useState("home");
 
-        const description = {
-            fr: "Si je devais me décrire succinctement, je me décrirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail d’équipe et le partage. Ma passion pour les sciences m'a amené à suivre un parcours scientifique jusqu'au niveau du doctorat. Au cours de cette expérience, j’ai redécouvert tous les aspects que j’apprécie dans les sciences, tels que les avancées technologiques et le partage d'idées au sein d'une équipe dynamique, ce qui permet des progrès rapides sur de nombreux projets. Un doctorat offre l'avantage d'une formation 100% approfondie sur un sujet, encadrée par des experts qui partagent toutes les clés du succès professionnel à court et long terme. Si je devais détailler davantage mes compétences professionnelles, je vous renverrais à mon CV, car les lister ici serait trop détaillé. Ma passion ne se limite pas aux sciences, elle s'étend aussi à d'autres domaines tels que la musique et le dessin, ce qui enrichit mes interactions sociales et fait de moi une personne très sociable.",
-            en: "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing. My passion for science led me to follow a scientific course up to doctorate level. During this experience, I rediscovered all the aspects that I appreciate in science, such as technological advances and the sharing of ideas within a dynamic team, which encourages rapid progress on many projects. A PhD offers the advantage of 100% in-depth training in a subject, supervised by experts who share all the keys to professional success in both the short and long term. If I were to go into more detail about my professional skills, I'd refer you to my CV, as listing them all here would be too detailed. My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person."
-        };
-
-        const methods = {
-            fr: [
-                "Spectroscopie infrarouge à transformée de Fourier (FTIR)",
-                "Spectroscopie UV-visible",
-                "Spectroscopie Raman",
-                "Microscopie électronique en transmission (TEM)",
-                "Microscopie électronique à balayage / Spectroscopie à rayons X (SEM/EDX)",
-                "Calorimétrie différentielle à balayage / Analyse thermogravimétrique (DSC / TGA)",
-                "Spectroscopie de diffusion dynamique / Potentiel Zeta (DLS / Zeta)",
-                "Rhéomètre (viscosité / photo-rhéologie)",
-                "Traction / Compression mécanique",
-                "Caméra thermique",
-                "Diffraction des rayons X (XRD)",
-                "Microscopie à force atomique (AFM)",
-                "Chromatographie liquide haute performance (HPLC)",
-                "Résonance magnétique nucléaire (H-NMR)",
-                "Electrochimie : CV/GCPL"
-            ],
-            en: [
-                "Fourier transform IR spectroscopy (FTIR)",
-                "UV-visible spectroscopy",
-                "Raman spectroscopy",
-                "Transmission electron microscopy (TEM)",
-                "Scanning electron microscopy / X-ray spectroscopy (SEM/EDX)",
-                "Differential scanning calorimetry / Thermogravimetric analysis (DSC / TGA)",
-                "Dynamic light scattering / Zeta potential (DLS / Zeta)",
-                "Rheometer (viscosity/photo-rheology)",
-                "Mechanical traction / Compression",
-                "Thermal camera",
-                "X-ray diffraction (XRD)",
-                "Atomic force microscopy (AFM)",
-                "High-performance liquid chromatography (HPLC)",
-                "H-NMR spectroscopy",
-                "Electrochemistry: CV/GCPL"
-            ]
-        };
-
-        const computerSkills = {
-            fr: [
-                "Pack Office",
-                "Origin",
-                "Blender",
-                "ChemDraw / ChemSketch",
-                "ImageJ",
-                "COMSOL Multiphysics",
-                "Gwyddion",
-                "Zotero",
-                "MATLAB"
-            ],
-            en: [
-                "Microsoft Office",
-                "Origin",
-                "Blender",
-                "ChemDraw / ChemSketch",
-                "ImageJ",
-                "COMSOL Multiphysics",
-                "Gwyddion",
-                "Zotero",
-                "MATLAB"
-            ]
-        };
-
         return (
             <div className="relative min-h-screen bg-gradient-to-b from-black to-gray-900 text-white flex flex-col items-center justify-center space-y-6">
                 <h1 className="text-5xl font-bold uppercase font-mono tracking-widest">
@@ -107,35 +40,11 @@
                     {language === "fr" ? "Bienvenue sur mon portfolio !" : "Welcome to my portfolio!"}
                 </p>
 
-                {section === "about" && (
-                    <div className="bg-gray-800 p-8 rounded-lg mt-6 max-w-3xl w-full shadow-lg">
-                        <div className="flex justify-center mb-6">
-                            <img className="w-32 h-32 rounded-full border-4 border-red-600" src="https://via.placeholder.com/150" alt="Quentin's photo" />
-                        </div>
-                        <h3 className="text-2xl font-mono mb-4 text-center text-red-600">{language === "fr" ? "Salut, je suis Quentin !" : "Hi, I'm Quentin!"}</h3>
-                        <p className="text-lg font-mono text-justify">{description[language]}</p>
-
-                        <h4 className="text-xl font-mono mt-6 text-center text-red-600">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
-                        <ul className="list-disc pl-8 mt-2 text-lg font-mono">
-                            {methods[language].map((method, index) => (
-                                <li key={index} className="text-justify">{method}</li>
-                            ))}
-                        </ul>
-
-                        <h4 className="text-xl font-mono mt-6 text-center text-red-600">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
-                        <ul className="list-disc pl-8 mt-2 text-lg font-mono">
-                            {computerSkills[language].map((skill, index) => (
-                                <li key={index} className="text-justify">{skill}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
                 <div className="flex space-x-6 mt-4">
                     <a href="https://github.com/quentdu68" target="_blank" className="text-red-500 hover:text-red-400">
                         <i data-lucide="github" className="w-8 h-8"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/quentin-bauerlin" target="_blank" className="text-red-500 hover:text-red-400">
+                    <a href="https://linkedin.com/in/quentin-bauerlin" target="_blank" className="text-red-500 hover:text-red-400">
                         <i data-lucide="linkedin" className="w-8 h-8"></i>
                     </a>
                     <a href="mailto:q.bauerlin@hotmail.fr" className="text-red-500 hover:text-red-400">
@@ -147,6 +56,75 @@
                     <button onClick={() => setLanguage("fr")} className="hover:text-gray-400">FR</button>
                     <button onClick={() => setLanguage("en")} className="hover:text-gray-400">EN</button>
                 </div>
+
+                {section === "about" && (
+                    <div className="flex flex-col items-center justify-center space-y-4">
+                        <h3 className="text-2xl font-bold">{language === "fr" ? "À propos de moi" : "About me"}</h3>
+                        <div className="flex justify-center mb-6">
+                            <img className="w-40 h-40 rounded-full border-4 border-red-600" 
+                                 src="https://github.com/quentdu68/quentinbauerlin/raw/ad919f38e6b8c7c5cd072c15e061754f34653e00/Images/Image1.jpg" 
+                                 alt="Quentin's photo" />
+                        </div>
+                        <p className="max-w-2xl text-center text-lg">
+                            {language === "fr" ? 
+                                "Si je devais me décrire succinctement, je me définirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail en équipe et le partage. Ma passion pour la science m'a conduit à suivre un parcours scientifique jusqu'au niveau du doctorat. Au cours de cette expérience, j'ai redécouvert tous les aspects que j'apprécie dans la science, tels que les avancées technologiques et le partage d'idées au sein d'une équipe dynamique, ce qui permet des progrès rapides sur de nombreux projets." : 
+                                "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing. My passion for science led me to follow a scientific course up to doctorate level. During this experience, I rediscovered all the aspects that I appreciate in science, such as technological advances and the sharing of ideas within a dynamic team, which encourages rapid progress on many projects."
+                            }
+                        </p>
+                        <p className="max-w-2xl text-center text-lg mt-4">
+                            {language === "fr" ? 
+                                "Un doctorat offre l'avantage d'une formation 100% approfondie sur un sujet, encadrée par des experts qui partagent toutes les clés de la réussite professionnelle à court et long terme." : 
+                                "A PhD offers the advantage of 100% in-depth training in a subject, supervised by experts who share all the keys to professional success in both the short and long term."
+                            }
+                        </p>
+                        <p className="max-w-2xl text-center text-lg mt-4">
+                            {language === "fr" ? 
+                                "Ma passion ne se limite pas à la science, elle s'étend aussi à d'autres domaines comme la musique et le dessin, ce qui enrichit mes interactions sociales et m'aide à être une personne très sociable." : 
+                                "My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person."
+                            }
+                        </p>
+
+                        <div className="mt-6">
+                            <h4 className="text-xl font-bold">{language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}</h4>
+                            <ul className="list-disc list-inside space-y-2 mt-2">
+                                <li>Fourier transform IR spectroscopy</li>
+                                <li>UV-visible spectroscopy</li>
+                                <li>Raman spectroscopy</li>
+                                <li>TEM</li>
+                                <li>SEM / EDX</li>
+                                <li>DSC / TGA</li>
+                                <li>DLS / Zeta potential</li>
+                                <li>Rheometer (viscosity/photo-rheology)</li>
+                                <li>Mechanical traction / compression</li>
+                                <li>Thermal camera</li>
+                                <li>XRD</li>
+                                <li>AFM</li>
+                                <li>HPLC</li>
+                                <li>H-NMR</li>
+                                <li>Electrochemistry: CV/GCPL</li>
+                            </ul>
+                        </div>
+
+                        <div className="mt-6">
+                            <h4 className="text-xl font-bold">{language === "fr" ? "Compétences informatiques" : "Computer skills"}</h4>
+                            <ul className="list-disc list-inside space-y-2 mt-2">
+                                <li>Pack office</li>
+                                <li>Origin</li>
+                                <li>Blender</li>
+                                <li>ChemDraw / ChemSketch</li>
+                                <li>ImageJ</li>
+                                <li>COMSOL Multiphysics</li>
+                                <li>Gwyddion</li>
+                                <li>Zotero</li>
+                                <li>Matlab</li>
+                            </ul>
+                        </div>
+
+                        <div className="mt-6 text-center text-lg font-bold">
+                            {language === "fr" ? "Fun fact : Je porte des Converse rouges tout le temps" : "Fun fact : I wear red Converse all the time"}
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
