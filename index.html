@@ -20,9 +20,21 @@
     function Portfolio() {
         const [language, setLanguage] = React.useState("en");
         const [section, setSection] = React.useState("home");
+	const [isArticlesOpen, setIsArticlesOpen] = React.useState(false);
+        const [isPatentsOpen, setIsPatentsOpen] = React.useState(false);
 
         const handleSectionChange = (newSection) => {
             setSection(newSection);
+        };
+
+// Fonction pour basculer l'état des articles
+        const toggleArticles = () => {
+            setIsArticlesOpen(!isArticlesOpen);
+        };
+
+        // Fonction pour basculer l'état des brevets
+        const togglePatents = () => {
+            setIsPatentsOpen(!isPatentsOpen);
         };
 
         return (
@@ -179,6 +191,73 @@
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                    </div>
+                )}
+
+{/* Publications section */}
+                {section === "publications" && (
+                    <div className="mt-8 px-4 max-w-6xl">
+                        <h3 className="text-3xl font-bold text-red-600 mb-6">
+                            {language === "fr" ? "Publications" : "Publications"}
+                        </h3>
+
+                        {/* Section Articles */}
+                        <div className="mb-6">
+                            <button 
+                                onClick={toggleArticles}
+                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                            >
+                                <span className={`mr-3 transform ${isArticlesOpen ? "rotate-90" : ""}`}>
+                                    &gt;
+                                </span>
+                                <span className="text-red-500">{language === "fr" ? "Articles" : "Articles"}</span>
+                            </button>
+                            {isArticlesOpen && (
+                                <div className="mt-4 pl-6 space-y-2">
+                                    {/* Liste d'articles */}
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Article 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Article 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Article 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Section Patents */}
+                        <div>
+                            <button 
+                                onClick={togglePatents}
+                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                            >
+                                <span className={`mr-3 transform ${isPatentsOpen ? "rotate-90" : ""}`}>
+                                    &gt;
+                                </span>
+                                <span className="text-red-500">{language === "fr" ? "Brevet" : "Patents"}</span>
+                            </button>
+                            {isPatentsOpen && (
+                                <div className="mt-4 pl-6 space-y-2">
+                                    {/* Liste de brevets */}
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Patent 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Patent 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Patent 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
