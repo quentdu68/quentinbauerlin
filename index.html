@@ -34,12 +34,19 @@
                     {language === "fr" ? "Docteur en Chimie des Matériaux" : "PhD in Materials Chemistry"}
                 </h2>
 
-                <div className="flex flex-col space-y-4">
+               {/* Boutons de section en deux colonnes et deux lignes */}
+                <div className="grid grid-cols-2 gap-6 mt-8">
                     <button onClick={() => handleSectionChange("about me")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
                         {language === "fr" ? "À propos de moi" : "About me"}
                     </button>
                     <button onClick={() => handleSectionChange("publications")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
                         {language === "fr" ? "Publications" : "Publications"}
+                    </button>
+                    <button onClick={() => handleSectionChange("communications")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
+                        {language === "fr" ? "Communications" : "Communications"}
+                    </button>
+                    <button onClick={() => handleSectionChange("creations")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
+                        {language === "fr" ? "Créations" : "Creations"}
                     </button>
                 </div>
 
