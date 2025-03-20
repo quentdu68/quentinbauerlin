@@ -77,18 +77,33 @@
                             <h3 className="text-3xl font-bold text-red-600">{language === "fr" ? "À propos de moi" : "About me"}</h3>
                             <p className="max-w-3xl text-lg text-justify leading-relaxed">
                                 {language === "fr" ? 
-                                    "Si je devais me décrire succinctement, je me définirais comme une personne gentille, motivée, dynamique et passionnée..." : 
-                                    "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person..."
+                                    "Si je devais me décrire succinctement, je me définirais comme une personne gentille, motivée, dynamique et passionnée, particulièrement attirée par le travail en équipe et le partage. Ma passion pour la science m'a conduit à suivre un parcours scientifique jusqu'au niveau du doctorat. Au cours de cette expérience, j'ai redécouvert tous les aspects que j'apprécie dans la science, tels que les avancées technologiques et le partage d'idées au sein d'une équipe dynamique, ce qui permet des progrès rapides sur de nombreux projets." : 
+                                    "If I had to describe myself succinctly, I would describe myself as a kind, motivated, dynamic and passionate person, particularly attracted by teamwork and sharing. My passion for science led me to follow a scientific course up to doctorate level. During this experience, I rediscovered all the aspects that I appreciate in science, such as technological advances and the sharing of ideas within a dynamic team, which encourages rapid progress on many projects."
                                 }
                             </p>
-                            {/* Autres sections de texte ici... */}
+                            <p className="max-w-3xl text-lg text-justify leading-relaxed mt-4">
+                                {language === "fr" ? 
+                                    "Un doctorat offre l'avantage d'une formation 100% approfondie sur un sujet, encadrée par des experts qui partagent toutes les clés de la réussite professionnelle à court et long terme." : 
+                                    "A PhD offers the advantage of 100% in-depth training in a subject, supervised by experts who share all the keys to professional success in both the short and long term."
+                                }
+                            </p>
+                            <p className="max-w-3xl text-lg text-justify leading-relaxed mt-4">
+                                {language === "fr" ? 
+                                    "Ma passion ne se limite pas à la science, elle s'étend aussi à d'autres domaines comme la musique et le dessin, ce qui enrichit mes interactions sociales et m'aide à être une personne très sociable." : 
+                                    "My passion is not limited to science, it also extends to other areas such as music and drawing, which enriches my social interactions and helps to make me a very sociable person."
+                                }
+                            </p>
+
+                            <p className="mt-4 text-lg italic">
+                                <span className="text-red-600">Fun fact:</span> {language === "fr" ? "Je porte des Converse rouges tout le temps !" : "I wear red Converse all the time!"}
+                            </p>
                         </div>
                     </div>
                 )}
 
                 {/* Bouton de retour avec flèche */}
                 {section === "about" && (
-                    <div className="absolute bottom-4 right-4 flex items-center space-x-2 text-sm">
+                    <div className="absolute bottom-4 right-4 flex items-center space-x-2">
                         <button onClick={() => setSection("home")} className="text-gray-400 hover:text-white flex items-center space-x-2 px-6 py-2 uppercase font-bold">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M13.293 3.293a1 1 0 010 1.414L7.707 10l5.586 5.293a1 1 0 11-1.414 1.414l-7-6a1 1 0 010-1.414l7-6a1 1 0 011.414 0z" clip-rule="evenodd" />
