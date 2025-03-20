@@ -100,8 +100,7 @@
                         </div>
                     </div>
                 )}
-
-                {/* Bouton de retour avec flèche */}
+  {/* Bouton de retour avec flèche */}
                 {section === "about" && (
                     <div className="absolute bottom-4 right-4 flex items-center space-x-2">
                         <button onClick={() => setSection("home")} className="bg-transparent text-red-500 hover:text-red-400 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 flex items-center">
@@ -113,16 +112,17 @@
                     </div>
                 )}
 
+
                 {/* Methods of characterization and Computer skills section */}
                 {section === "about" && (
-                    <div className="mt-8 grid grid-cols-2 gap-x-36 gap-y-8 px-4 max-w-12xl">
+                    <div className="mt-8 grid grid-cols-2 gap-x-12 gap-y-8 px-4 max-w-6xl">
                         {/* Methods of characterization */}
                         <div>
                             <h4 className="text-2xl font-bold text-red-500 mb-6">
                                 {language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}
                             </h4>
-                            <div className="grid grid-cols-2 gap-4">
-                                {[ 
+                            <div className="grid grid-cols-2 gap-4"> {/* Modification : Ajout du grid pour diviser en 2 colonnes */}
+                                {[
                                     "Fourier transform IR spectroscopy",
                                     "UV-visible spectroscopy",
                                     "Raman spectroscopy",
@@ -148,12 +148,12 @@
                         </div>
 
                         {/* Computer skills */}
-                        <div>
+                        <div className="mb-12">
                             <h4 className="text-2xl font-bold text-red-500 mb-6">
                                 {language === "fr" ? "Compétences informatiques" : "Computer skills"}
                             </h4>
                             <div className="flex flex-col space-y-2">
-                                {[ 
+                                {[
                                     "Pack Office",
                                     "Origin",
                                     "Blender",
