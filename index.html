@@ -35,11 +35,11 @@
                 </h2>
 
                 <div className="flex flex-col space-y-4">
-                    <button onClick={() => handleSectionChange("about")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
-                        {language === "fr" ? "À propos" : "About"}
+                    <button onClick={() => handleSectionChange("about me")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
+                        {language === "fr" ? "À propos de moi" : "About me"}
                     </button>
-                    <button onClick={() => handleSectionChange("projects")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
-                        {language === "fr" ? "Projets" : "Projects"}
+                    <button onClick={() => handleSectionChange("publications")} className="bg-red-600 hover:bg-red-800 px-6 py-2 text-lg uppercase font-bold border-2 border-white rounded">
+                        {language === "fr" ? "Publications" : "Publications"}
                     </button>
                 </div>
 
@@ -64,8 +64,8 @@
                     <button onClick={() => setLanguage("en")} className="hover:text-gray-400">EN</button>
                 </div>
 
-                {/* About section */}
-                {section === "about" && (
+                {/* about me section */}
+                {section === "about me" && (
                     <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mt-8 px-4">
                         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-red-600 overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
                             <img className="w-full h-full object-cover" 
@@ -101,7 +101,7 @@
                     </div>
                 )}
   {/* Bouton de retour avec flèche */}
-                {section === "about" && (
+                {section === "about me" && (
                     <div className="absolute bottom-4 right-4 flex items-center space-x-2">
                         <button onClick={() => setSection("home")} className="bg-transparent text-red-500 hover:text-red-400 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -114,7 +114,7 @@
 
 
                 {/* Methods of characterization and Computer skills section */}
-                {section === "about" && (
+                {section === "about me" && (
                     <div className="mt-8 grid grid-cols-2 gap-x-12 gap-y-8 px-4 max-w-6xl">
                         {/* Methods of characterization */}
                         <div>
