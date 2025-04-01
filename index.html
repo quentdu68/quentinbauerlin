@@ -22,6 +22,8 @@
         const [section, setSection] = React.useState("home");
 	const [isArticlesOpen, setIsArticlesOpen] = React.useState(false);
         const [isPatentsOpen, setIsPatentsOpen] = React.useState(false);
+        const [isCreationsOpen, setIsCreationsOpen] = React.useState(false);  // Ajout pour Creations
+        const [activeCreationSection, setActiveCreationSection] = React.useState(null); // Pour gérer les sous-sections
 
         const handleSectionChange = (newSection) => {
             setSection(newSection);
@@ -35,6 +37,11 @@
         // Fonction pour basculer l'état des brevets
         const togglePatents = () => {
             setIsPatentsOpen(!isPatentsOpen);
+        };
+
+        // Fonction pour basculer entre les sous-sections de créations
+        const toggleCreationSection = (section) => {
+            setActiveCreationSection(activeCreationSection === section ? null : section);
         };
 
         return (
@@ -136,7 +143,7 @@
                 {section === "about me" && (
                     <div className="mt-8 grid grid-cols-2 gap-x-12 gap-y-8 px-4 max-w-6xl">
                         {/* Methods of characterization */}
-                        <div>
+                        <div className="mb-12">
                             <h4 className="text-2xl font-bold text-red-500 mb-6">
                                 {language === "fr" ? "Méthodes de caractérisation" : "Methods of characterization"}
                             </h4>
@@ -231,8 +238,21 @@
                             )}
                         </div>
 
+                        {/* Bouton de retour avec flèche */}
+                {section === "publications" && (
+                    <div className="absolute bottom-4 right-4 flex items-center space-x-2">
+                        <button onClick={() => setSection("home")} className="bg-transparent text-red-500 hover:text-red-400 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M13.293 3.293a1 1 0 010 1.414L7.707 10l5.586 5.293a1 1 0 11-1.414 1.414l-7-6a1 1 0 010-1.414l7-6a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{language === "fr" ? "Retour" : "Back"}</span>
+                        </button>
+                    </div>
+                )}
+
+
                         {/* Section Patents */}
-                        <div>
+                        <div className="mb-12">
                             <button 
                                 onClick={togglePatents}
                                 className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
@@ -261,9 +281,107 @@
                         </div>
                     </div>
                 )}
+
+    {/* Creations section */}
+    {section === "creations" && (
+                    <div className="mt-8 px-4 max-w-6xl">
+                        <h3 className="text-3xl font-bold text-red-600 mb-6">
+                            {language === "fr" ? "Créations" : "Creations"}
+                        </h3>
+
+ {/* Bouton de retour avec flèche */}
+                {section === "creations" && (
+                    <div className="absolute bottom-4 right-4 flex items-center space-x-2">
+                        <button onClick={() => setSection("home")} className="bg-transparent text-red-500 hover:text-red-400 font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M13.293 3.293a1 1 0 010 1.414L7.707 10l5.586 5.293a1 1 0 11-1.414 1.414l-7-6a1 1 0 010-1.414l7-6a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{language === "fr" ? "Retour" : "Back"}</span>
+                        </button>
+                    </div>
+                )}
+
+                        {/* Section 3D Animations */}
+                        <div className="mb-6">
+                            <button 
+                                onClick={() => toggleCreationSection("3D Animations")}
+                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                            >
+                                <span className={`mr-3 transform ${activeCreationSection === "3D Animations" ? "rotate-90" : ""}`}>
+                                    &gt;
+                                </span>
+                                <span className="text-red-500">{language === "fr" ? "Animations 3D" : "3D Animations"}</span>
+                            </button>
+                            {activeCreationSection === "3D Animations" && (
+                                <div className="mt-4 pl-6 space-y-2">
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Animation 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Animation 2</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Section 3D Models */}
+                        <div className="mb-6">
+                            <button 
+                                onClick={() => toggleCreationSection("3D Models")}
+                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                            >
+                                <span className={`mr-3 transform ${activeCreationSection === "3D Models" ? "rotate-90" : ""}`}>
+                                    &gt;
+                                </span>
+                                <span className="text-red-500">{language === "fr" ? "Modèles 3D" : "3D Models"}</span>
+                            </button>
+                            {activeCreationSection === "3D Models" && (
+                                <div className="mt-4 pl-6 space-y-2">
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Model 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Model 2</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Section Other personal creations */}
+                        <div className="mb-12">
+                            <button 
+                                onClick={() => toggleCreationSection("Other personal creations")}
+                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                            >
+                                <span className={`mr-3 transform ${activeCreationSection === "Other personal creations" ? "rotate-90" : ""}`}>
+                                    &gt;
+                                </span>
+                                <span className="text-red-500">{language === "fr" ? "Autres créations personnelles" : "Other personal creations"}</span>
+                            </button>
+                            {activeCreationSection === "Other personal creations" && (
+                                <div className="mt-4 pl-6 space-y-2">
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Creation 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="text-white hover:text-gray-400">Creation 2</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
+
         );
     }
+
 
     ReactDOM.render(<Portfolio />, document.getElementById('root'));
     
