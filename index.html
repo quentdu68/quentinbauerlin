@@ -28,6 +28,7 @@
             const [activeCommunicationsSection, setActiveCommunicationsSection] = React.useState(null);
             const [activeSection, setActiveSection] = React.useState(null);
             const [activeSubSection, setActiveSubSection] = React.useState(null);
+            const [activeMemorySection, setActiveMemorySection] = React.useState(false);
         
             const handleSectionChange = (newSection) => {
                 setSection(newSection);
@@ -60,7 +61,11 @@
             };
 
             const toggleSubSection = (subSection) => {
-                setActiveSubSection(activeSubSection === subSection ? null : subSection);
+                if (subSection === "MemoryPictures") {
+                    setActiveMemorySection(!activeMemorySection);
+                } else {
+                    setActiveSubSection(activeSubSection === subSection ? null : subSection);
+                }
             };
 
         return (
@@ -354,34 +359,84 @@
                                                     }}
                                                     className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
                                                 >
-                                                    <span className={`mr-3 transform ${activeSubSection === "MemoryPictures" ? "rotate-90" : ""}`}>
+                                                    <span className={`mr-3 transform ${activeMemorySection ? "rotate-90" : ""}`}>
                                                         &gt;
                                                     </span>
                                                     <span>{language === "fr" ? "Photos Souvenirs" : "Memory Pictures"}</span>
                                                 </button>
-                                                {activeSubSection === "MemoryPictures" && (
+                                                {activeMemorySection && (
                                                     <div className="mt-4 pl-6">
                                                         <div className="grid grid-cols-2 gap-4">
+                                                            {/* Photo 1 */}
                                                             <div>
                                                                 <img 
-                                                                    src="./Teaching/ASTEP/Memory Pictures/20210601_154550.jpg"
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 1.jpg"
                                                                     alt="Photo 1"
                                                                     className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
-                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/20210601_154550.jpg", "_blank")}
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 1.jpg", "_blank")}
                                                                 />
                                                                 <p className="text-center mt-2 text-white">
                                                                     {language === "fr" ? "Photo 1" : "Picture 1"}
                                                                 </p>
                                                             </div>
+                                                            {/* Photo 2 */}
                                                             <div>
                                                                 <img 
-                                                                    src="./Teaching/ASTEP/Memory Pictures/20210601_154553.jpg"
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 2.jpg"
                                                                     alt="Photo 2"
                                                                     className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
-                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/20210601_154553.jpg", "_blank")}
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 2.jpg", "_blank")}
                                                                 />
                                                                 <p className="text-center mt-2 text-white">
                                                                     {language === "fr" ? "Photo 2" : "Picture 2"}
+                                                                </p>
+                                                            </div>
+                                                            {/* Photo 3 */}
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 3.jpg"
+                                                                    alt="Photo 3"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 3.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 3" : "Picture 3"}
+                                                                </p>
+                                                            </div>
+                                                            {/* Photo 4 */}
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 4.jpg"
+                                                                    alt="Photo 4"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 4.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 4" : "Picture 4"}
+                                                                </p>
+                                                            </div>
+                                                            {/* Photo 5 */}
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 5.jpg"
+                                                                    alt="Photo 5"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 5.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 5" : "Picture 5"}
+                                                                </p>
+                                                            </div>
+                                                            {/* Photo 6 */}
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/Memory Picture 6.jpg"
+                                                                    alt="Photo 6"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/Memory Picture 6.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 6" : "Picture 6"}
                                                                 </p>
                                                             </div>
                                                         </div>
