@@ -26,6 +26,8 @@
             const [activeCreationSection, setActiveCreationSection] = React.useState(null);
             const [isCommunicationsOpen, setIsCommunicationsOpen] = React.useState(false);
             const [activeCommunicationsSection, setActiveCommunicationsSection] = React.useState(null);
+            const [activeSection, setActiveSection] = React.useState(null);
+            const [activeSubSection, setActiveSubSection] = React.useState(null);
         
             const handleSectionChange = (newSection) => {
                 setSection(newSection);
@@ -45,6 +47,20 @@
         
             const toggleCommunicationSection = (section) => {
                 setActiveCommunicationsSection(activeCommunicationsSection === section ? null : section);
+            };
+
+            const toggleSection = (section) => {
+                if (activeSection === section) {
+                    setActiveSection(null);
+                    setActiveSubSection(null);
+                } else {
+                    setActiveSection(section);
+                    setActiveSubSection(null);
+                }
+            };
+
+            const toggleSubSection = (subSection) => {
+                setActiveSubSection(activeSubSection === subSection ? null : subSection);
             };
 
         return (
@@ -307,69 +323,125 @@
                         {/* Section Teaching */}
                         <div className="mb-6">
                             <button 
-                                onClick={() => toggleCreationSection("Teaching")}
+                                onClick={() => toggleSection("Teaching")}
                                 className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
                             >
-                                <span className={`mr-3 transform ${activeCreationSection === "Teaching" ? "rotate-90" : ""}`}>
+                                <span className={`mr-3 transform ${activeSection === "Teaching" ? "rotate-90" : ""}`}>
                                     &gt;
                                 </span>
                                 <span className="text-red-500">{language === "fr" ? "Enseignements" : "Teaching"}</span>
                             </button>
-                            {activeCreationSection === "Teaching" && (
+                            {activeSection === "Teaching" && (
                                 <div className="mt-4 pl-6 space-y-2">
-                                    <ul>
-                                        <li>
-                                            <button 
-                                                onClick={() => toggleCreationSection("ASTEP")}
-                                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
-                                            >
-                                                <span className={`mr-3 transform ${activeCreationSection === "ASTEP" ? "rotate-90" : ""}`}>
-                                                    &gt;
-                                                </span>
-                                                <span>{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l’Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
-                                            </button>
-                                            {activeCreationSection === "ASTEP" && (
-                                                <div className="mt-4 pl-6 space-y-2">
-                                                    {/* Sous-section Photos */}
-                                                    <div>
-                                                        <h4 className="text-red-500 text-lg font-bold">{language === "fr" ? "Photos" : "Photos"}</h4>
-                                                        <ul className="mt-2 space-y-2">
-                                                            <li>
-                                                                <a href="Teaching\ASTEP\Souvenir photos\20210601_154550.jpg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Photo 1" : "Photo 1"}
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="Teaching\ASTEP\Souvenir photos\20210601_154553.jpg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Photo 2" : "Photo 2"}
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                    {/* ASTEP sous-section */}
+                                    <button 
+                                        onClick={() => toggleSubSection("ASTEP")}
+                                        className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                    >
+                                        <span className={`mr-3 transform ${activeSubSection === "ASTEP" ? "rotate-90" : ""}`}>
+                                            &gt;
+                                        </span>
+                                        <span>{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l'Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
+                                    </button>
+                                    {activeSubSection === "ASTEP" && (
+                                        <div className="mt-4 pl-6">
+                                            {/* Memory Pictures section */}
+                                            <div className="space-y-2">
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        toggleSubSection("MemoryPictures");
+                                                    }}
+                                                    className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                                >
+                                                    <span className={`mr-3 transform ${activeSubSection === "MemoryPictures" ? "rotate-90" : ""}`}>
+                                                        &gt;
+                                                    </span>
+                                                    <span>{language === "fr" ? "Photos Souvenirs" : "Memory Pictures"}</span>
+                                                </button>
+                                                {activeSubSection === "MemoryPictures" && (
+                                                    <div className="mt-4 pl-6">
+                                                        <div className="grid grid-cols-2 gap-4">
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/20210601_154550.jpg"
+                                                                    alt="Photo 1"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/20210601_154550.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 1" : "Picture 1"}
+                                                                </p>
+                                                            </div>
+                                                            <div>
+                                                                <img 
+                                                                    src="./Teaching/ASTEP/Memory Pictures/20210601_154553.jpg"
+                                                                    alt="Photo 2"
+                                                                    className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                    onClick={() => window.open("./Teaching/ASTEP/Memory Pictures/20210601_154553.jpg", "_blank")}
+                                                                />
+                                                                <p className="text-center mt-2 text-white">
+                                                                    {language === "fr" ? "Photo 2" : "Picture 2"}
+                                                                </p>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                )}
+                                            </div>
 
-                                                    {/* Sous-section PowerPoint */}
-                                                    <div className="mt-4">
-                                                        <h4 className="text-red-500 text-lg font-bold">{language === "fr" ? "PowerPoint" : "PowerPoint"}</h4>
-                                                        <ul className="mt-2 space-y-2">
+                                            {/* Lessons */}
+                                            <div className="space-y-2">
+                                                <button
+                                                    onClick={() => toggleSubSection("Lessons")}
+                                                    className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                                >
+                                                    <span className={`mr-3 transform ${activeSubSection === "Lessons" ? "rotate-90" : ""}`}>
+                                                        &gt;
+                                                    </span>
+                                                    <span>{language === "fr" ? "Leçons" : "Lessons"}</span>
+                                                </button>
+                                                {activeSubSection === "Lessons" && (
+                                                    <div className="mt-4 pl-6">
+                                                        <ul className="space-y-2">
                                                             <li>
-                                                                <a href="powerpoints/presentation1.pptx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Présentation 1" : "Presentation 1"}
+                                                                <a href="Teaching/ASTEP/Lessons/lesson1.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Leçon 1" : "Lesson 1"}
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="powerpoints/presentation2.pptx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Présentation 2" : "Presentation 2"}
+                                                                <a href="Teaching/ASTEP/Lessons/lesson2.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Leçon 2" : "Lesson 2"}
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                </div>
-                                            )}
-                                        </li>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">{language === "fr" ? "Teaching 2" : "Teaching 2"}</a>
-                                        </li>
-                                    </ul>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                    
+                                    {/* Teaching 2 sous-section */}
+                                    <button 
+                                        onClick={() => toggleSubSection("Teaching2")}
+                                        className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                    >
+                                        <span className={`mr-3 transform ${activeSubSection === "Teaching2" ? "rotate-90" : ""}`}>
+                                            &gt;
+                                        </span>
+                                        <span>{language === "fr" ? "Teaching 2" : "Teaching 2"}</span>
+                                    </button>
+                                    {activeSubSection === "Teaching2" && (
+                                        <div className="mt-4 pl-6 space-y-2">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" className="text-white hover:text-gray-400">Document 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" className="text-white hover:text-gray-400">Document 2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
