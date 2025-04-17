@@ -482,15 +482,31 @@
                                 <span className="text-red-500">{language === "fr" ? "Modèles 3D" : "3D Models"}</span>
                             </button>
                             {activeCreationSection === "3D Models" && (
-                                <div className="mt-4 pl-6 space-y-2">
-                                    <ul>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Model 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Model 2</a>
-                                        </li>
-                                    </ul>
+                                <div className="mt-4 pl-6 space-y-4">
+                                    {/* Intégration du modèle Sketchfab */}
+                                    <div className="sketchfab-embed-wrapper">
+                                        <iframe
+                                            title="Gradient Kelvin"
+                                            frameBorder="0"
+                                            allowFullScreen
+                                            mozallowfullscreen="true"
+                                            webkitallowfullscreen="true"
+                                            allow="autoplay; fullscreen; xr-spatial-tracking"
+                                            src="https://sketchfab.com/models/666f17a6219a4aba883290f4ec54eb60/embed"
+                                            className="w-full h-96"
+                                        ></iframe>
+                                        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                                            <a href="https://sketchfab.com/3d-models/gradient-kelvin-666f17a6219a4aba883290f4ec54eb60?utm_medium=embed&utm_campaign=share-popup&utm_content=666f17a6219a4aba883290f4ec54eb60" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+                                                Gradient Kelvin
+                                            </a> by 
+                                            <a href="https://sketchfab.com/quentdu68?utm_medium=embed&utm_campaign=share-popup&utm_content=666f17a6219a4aba883290f4ec54eb60" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+                                                quentdu68
+                                            </a> on 
+                                            <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=666f17a6219a4aba883290f4ec54eb60" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+                                                Sketchfab
+                                            </a>
+                                        </p>
+                                    </div>
                                 </div>
                             )}
                         </div>
