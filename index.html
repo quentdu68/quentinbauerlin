@@ -319,10 +319,55 @@
                                 <div className="mt-4 pl-6 space-y-2">
                                     <ul>
                                         <li>
-                                            <a href="#" className="text-white hover:text-gray-400">ASTEP – Accompagnement en sciences et technologie à l’Ecole primaire</a>
+                                            <button 
+                                                onClick={() => toggleCreationSection("ASTEP")}
+                                                className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                            >
+                                                <span className={`mr-3 transform ${activeCreationSection === "ASTEP" ? "rotate-90" : ""}`}>
+                                                    &gt;
+                                                </span>
+                                                <span>{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l’Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
+                                            </button>
+                                            {activeCreationSection === "ASTEP" && (
+                                                <div className="mt-4 pl-6 space-y-2">
+                                                    {/* Sous-section Photos */}
+                                                    <div>
+                                                        <h4 className="text-red-500 text-lg font-bold">{language === "fr" ? "Photos" : "Photos"}</h4>
+                                                        <ul className="mt-2 space-y-2">
+                                                            <li>
+                                                                <a href="Teaching\ASTEP\Souvenir photos\20210601_154550.jpg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Photo 1" : "Photo 1"}
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="Teaching\ASTEP\Souvenir photos\20210601_154553.jpg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Photo 2" : "Photo 2"}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    {/* Sous-section PowerPoint */}
+                                                    <div className="mt-4">
+                                                        <h4 className="text-red-500 text-lg font-bold">{language === "fr" ? "PowerPoint" : "PowerPoint"}</h4>
+                                                        <ul className="mt-2 space-y-2">
+                                                            <li>
+                                                                <a href="powerpoints/presentation1.pptx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Présentation 1" : "Presentation 1"}
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="powerpoints/presentation2.pptx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                                                                    {language === "fr" ? "Présentation 2" : "Presentation 2"}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </li>
                                         <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Teaching 2</a>
+                                            <a href="#" className="text-white hover:text-gray-400">{language === "fr" ? "Teaching 2" : "Teaching 2"}</a>
                                         </li>
                                     </ul>
                                 </div>
