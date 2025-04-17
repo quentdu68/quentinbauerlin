@@ -29,6 +29,7 @@
             const [activeSection, setActiveSection] = React.useState(null);
             const [activeSubSection, setActiveSubSection] = React.useState(null);
             const [activeMemorySection, setActiveMemorySection] = React.useState(false);
+            const [activeLessonsSection, setActiveLessonsSection] = React.useState(false);
         
             const handleSectionChange = (newSection) => {
                 setSection(newSection);
@@ -63,6 +64,8 @@
             const toggleSubSection = (subSection) => {
                 if (subSection === "MemoryPictures") {
                     setActiveMemorySection(!activeMemorySection);
+                } else if (subSection === "Lessons") {
+                    setActiveLessonsSection(!activeLessonsSection);
                 } else {
                     setActiveSubSection(activeSubSection === subSection ? null : subSection);
                 }
@@ -346,7 +349,7 @@
                                         <span className={`mr-3 transform ${activeSubSection === "ASTEP" ? "rotate-90" : ""}`}>
                                             &gt;
                                         </span>
-                                        <span>{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l'Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
+                                        <span className="text-white">{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l'Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
                                     </button>
                                     {activeSubSection === "ASTEP" && (
                                         <div className="mt-4 pl-6">
@@ -447,28 +450,60 @@
                                             {/* Lessons */}
                                             <div className="space-y-2">
                                                 <button
-                                                    onClick={() => toggleSubSection("Lessons")}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        toggleSubSection("Lessons");
+                                                    }}
                                                     className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
                                                 >
-                                                    <span className={`mr-3 transform ${activeSubSection === "Lessons" ? "rotate-90" : ""}`}>
+                                                    <span className={`mr-3 transform ${activeLessonsSection ? "rotate-90" : ""}`}>
                                                         &gt;
                                                     </span>
                                                     <span>{language === "fr" ? "Leçons" : "Lessons"}</span>
                                                 </button>
-                                                {activeSubSection === "Lessons" && (
+                                                {activeLessonsSection && (
                                                     <div className="mt-4 pl-6">
-                                                        <ul className="space-y-2">
-                                                            <li>
-                                                                <a href="Teaching/ASTEP/Lessons/lesson1.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Leçon 1" : "Lesson 1"}
+                                                        <div className="space-y-4">
+                                                            {/* Lesson 1 */}
+                                                            <div className="bg-gray-800 p-4 rounded-lg">
+                                                                <a 
+                                                                    href="./Teaching/ASTEP/Lessons/Lesson 1.pptx"
+                                                                    download
+                                                                    className="flex items-center space-x-3 text-white hover:text-gray-300"
+                                                                >
+                                                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                                    </svg>
+                                                                    <span>{language === "fr" ? "Leçon 1 - Les châteaux d'eau" : "Lesson 1 - Water Towers"}</span>
                                                                 </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="Teaching/ASTEP/Lessons/lesson2.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                                                                    {language === "fr" ? "Leçon 2" : "Lesson 2"}
+                                                            </div>
+                                                            {/* Lesson 2 */}
+                                                            <div className="bg-gray-800 p-4 rounded-lg">
+                                                                <a 
+                                                                    href="./Teaching/ASTEP/Lessons/Lesson 2.pptx"
+                                                                    download
+                                                                    className="flex items-center space-x-3 text-white hover:text-gray-300"
+                                                                >
+                                                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                                    </svg>
+                                                                    <span>{language === "fr" ? "Leçon 2 - Traitement de l'eau" : "Lesson 2 - Water Treatment"}</span>
                                                                 </a>
-                                                            </li>
-                                                        </ul>
+                                                            </div>
+                                                            {/* Lesson 3 */}
+                                                            <div className="bg-gray-800 p-4 rounded-lg">
+                                                                <a 
+                                                                    href="./Teaching/ASTEP/Lessons/Lesson 3.pptx"
+                                                                    download
+                                                                    className="flex items-center space-x-3 text-white hover:text-gray-300"
+                                                                >
+                                                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                                    </svg>
+                                                                    <span>{language === "fr" ? "Leçon 3 - La centrale hydraulique" : "Lesson 3 - The Hydraulic Power Plant"}</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 )}
                                             </div>
