@@ -346,12 +346,15 @@
                                     {/* ASTEP sous-section */}
                                     <button 
                                         onClick={() => toggleSubSection("ASTEP")}
-                                        className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        className="text-white hover:text-gray-400 flex items-center space-x-3 w-full"
                                     >
-                                        <span className={`mr-3 transform ${activeSubSection === "ASTEP" ? "rotate-90" : ""}`}>
+                                        <span>{language === "fr" ? 
+                                            "ASTEP – Accompagnement en sciences et technologie à l'Ecole primaire" : 
+                                            "ASTEP – Support in Science and Technology at Primary School"
+                                        }</span>
+                                        <span className={`ml-2 transform ${activeSubSection === "ASTEP" ? "rotate-90" : ""}`}>
                                             &gt;
                                         </span>
-                                        <span className="text-white">{language === "fr" ? "ASTEP – Accompagnement en sciences et technologie à l'Ecole primaire" : "ASTEP – Support in Science and Technology at Primary School"}</span>
                                     </button>
                                     {activeSubSection === "ASTEP" && (
                                         <div className="mt-4 pl-6">
@@ -902,16 +905,7 @@
                                         {/* First column */}
                                         <div className="space-y-8">
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/gradient-kelvin-666f17a6219a4aba883290f4ec54eb60" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Gradient Kelvin
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Gradient Kelvin.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Gradient Kelvin"
@@ -927,16 +921,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/olympic-science-medal-b304c2b05720477384b784efdb9a6186" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Olympic Science Medal
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Olympic Science Medal.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Olympic Science Medal"
@@ -952,16 +937,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/structure-diabolo-363fb282691e445f89205416b148bf52" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Structure Diabolo
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Structure Diabolo.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Structure Diabolo"
@@ -977,16 +953,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/gyroid-80x80x80-20-mm-f957ae4aeba64e5087d2b496fad9044d" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Gyroid 80x80x80 (20 mm)
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Gyroid 80x80x80 (20 mm).STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Gyroid 80x80x80 (20 mm)"
@@ -1005,16 +972,7 @@
                                         {/* Second column */}
                                         <div className="space-y-8">
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/kelvin-finger-af000977d22a4739a5d6939b184922f9" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Kelvin finger
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Kelvin finger.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Kelvin finger"
@@ -1030,16 +988,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/gyroid-5-848fcaa7a5b24d19bdfd7ee2d41bce01" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Gyroïd 5
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Gyroïd 5.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Gyroïd 5"
@@ -1055,16 +1004,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/cross-centre-20d6c85c268f4f8fa1f3d34977b7e97e" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Cross Centre
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Cross Centre.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Cross Centre"
@@ -1080,16 +1020,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/cap-electrochimie-3-electrodes-f718b950ea0149c7b2ec579f64f93357" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Cap Electrochimie 3 Electrodes
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Cap Electrochimie 3 Electrodes.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Cap Electrochimie 3 Electrodes"
@@ -1108,16 +1039,7 @@
                                         {/* Third column */}
                                         <div className="space-y-8">
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/diamond-94f323cca8944a0aa6efeeaa0415a0eb" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Diamond
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Diamond.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Diamond"
@@ -1133,16 +1055,7 @@
                                             </div>
 
                                             <div>
-                                                <h4 className="text-xl font-bold text-red-500 mb-2">
-                                                    <a 
-                                                        href="https://sketchfab.com/3d-models/grid-c9195d80bbfd4143bb589b9e098bc710" 
-                                                        target="_blank" 
-                                                        rel="noopener noreferrer" 
-                                                        className="hover:underline"
-                                                    >
-                                                        Grid
-                                                    </a>
-                                                </h4>
+                                                <h4 className="text-lg font-semibold text-white mb-2">Grid.STL</h4>
                                                 <div className="sketchfab-embed-wrapper">
                                                     <iframe
                                                         title="Grid"
