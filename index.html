@@ -30,6 +30,8 @@
             const [activeSubSection, setActiveSubSection] = React.useState(null);
             const [activeMemorySection, setActiveMemorySection] = React.useState(false);
             const [activeLessonsSection, setActiveLessonsSection] = React.useState(false);
+            const [activeFestival2021, setActiveFestival2021] = React.useState(false);
+            const [activeFestival2023, setActiveFestival2023] = React.useState(false);
         
             const handleSectionChange = (newSection) => {
                 setSection(newSection);
@@ -68,6 +70,14 @@
                     setActiveLessonsSection(!activeLessonsSection);
                 } else {
                     setActiveSubSection(activeSubSection === subSection ? null : subSection);
+                }
+            };
+
+            const toggleFestival = (festival) => {
+                if (festival === "2021") {
+                    setActiveFestival2021(!activeFestival2021);
+                } else if (festival === "2023") {
+                    setActiveFestival2023(!activeFestival2023);
                 }
             };
 
@@ -472,7 +482,7 @@
                                                                     className="flex items-center space-x-3 text-white hover:text-gray-300"
                                                                 >
                                                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                                                     </svg>
                                                                     <span>{language === "fr" ? "Leçon 1 - Les châteaux d'eau" : "Lesson 1 - Water Towers"}</span>
                                                                 </a>
@@ -551,12 +561,96 @@
                                 <div className="mt-4 pl-6 space-y-4">
                                     {/* Cultural and scientific events */}
                                     <div className="group">
-                                        <a href="#" className="text-white hover:text-gray-400 flex items-center space-x-3">
+                                        <button 
+                                            onClick={() => toggleSubSection("CulturalEvents")}
+                                            className="text-white hover:text-gray-400 flex items-center space-x-3 w-full"
+                                        >
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
                                             <span>{language === "fr" ? "Événements culturels et scientifiques" : "Cultural and scientific events"}</span>
-                                        </a>
+                                            <span className={`ml-2 transform ${activeSubSection === "CulturalEvents" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                        </button>
+                                        {activeSubSection === "CulturalEvents" && (
+                                            <div className="mt-4 pl-6 space-y-4">
+                                                {/* Science Festival 2021 */}
+                                                <div>
+                                                    <button
+                                                        onClick={() => toggleFestival("2021")}
+                                                        className="text-lg font-semibold text-white mb-2 flex items-center space-x-3"
+                                                    >
+                                                        <span className={`transform ${activeFestival2021 ? "rotate-90" : ""}`}>
+                                                            &gt;
+                                                        </span>
+                                                        <span>Science Festival - 2021 - L'émotion de la découverte</span>
+                                                    </button>
+                                                    {activeFestival2021 && (
+                                                        <div className="mt-4 pl-6">
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((num) => (
+                                                                    <div key={num}>
+                                                                        <img 
+                                                                            src={`Knowledge Sharing/Cultural and scientific events/Science Festival - 2021 - émotion de la découverte/Picture ${num}.jpg`}
+                                                                            alt={`Festival 2021 Picture ${num}`}
+                                                                            className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                            onClick={() => window.open(`Knowledge Sharing/Cultural and scientific events/Science Festival - 2021 - L'émotion de la découverte/Picture ${num}.jpg`, "_blank")}
+                                                                        />
+                                                                        <p className="text-center mt-2 text-white">
+                                                                            {language === "fr" ? `Photo ${num}` : `Picture ${num}`}
+                                                                        </p>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Science Festival 2023 */}
+                                                <div>
+                                                    <button
+                                                        onClick={() => toggleFestival("2023")}
+                                                        className="text-lg font-semibold text-white mb-2 flex items-center space-x-3"
+                                                    >
+                                                        <span className={`transform ${activeFestival2023 ? "rotate-90" : ""}`}>
+                                                            &gt;
+                                                        </span>
+                                                        <span>Science Festival - 2023 - Le sport</span>
+                                                    </button>
+                                                    {activeFestival2023 && (
+                                                        <div className="mt-4 pl-6">
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                {[...Array(7).keys()].map((i) => (
+                                                                    <div key={i + 1}>
+                                                                        <img 
+                                                                            src={`Knowledge Sharing/Cultural and scientific events/Science Festival - 2023 - Le sport/Picture ${i + 1}.jpg`}
+                                                                            alt={`Festival 2023 Picture ${i + 1}`}
+                                                                            className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                            onClick={() => window.open(`Knowledge Sharing/Cultural and scientific events/Science Festival - 2023 - Le sport/Picture ${i + 1}.jpg`, "_blank")}
+                                                                        />
+                                                                        <p className="text-center mt-2 text-white">
+                                                                            {language === "fr" ? `Photo ${i + 1}` : `Picture ${i + 1}`}
+                                                                        </p>
+                                                                    </div>
+                                                                ))}
+                                                                <div key="carbon-game">
+                                                                    <img 
+                                                                        src="Knowledge Sharing/Cultural and scientific events/Science Festival - 2023 - Le sport/Carbon game.png"
+                                                                        alt={language === "fr" ? "Jeu sur le carbone" : "Carbon game"}
+                                                                        className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                        onClick={() => window.open("Knowledge Sharing/Cultural and scientific events/Science Festival - 2023 - Le sport/Carbon game.png", "_blank")}
+                                                                    />
+                                                                    <p className="text-center mt-2 text-white">
+                                                                        {language === "fr" ? "Jeu sur le carbone" : "Carbon game"}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Video participation */}
@@ -566,7 +660,7 @@
                                             className="text-white hover:text-gray-400 flex items-center space-x-3 w-full"
                                         >
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2-2v8a2 2 0 002 2z" />
                                             </svg>
                                             <span>{language === "fr" ? "Participation Vidéo" : "Video Participation"}</span>
                                             <span className={`ml-2 transform ${activeSubSection === "VideoParticipation" ? "rotate-90" : ""}`}>
@@ -592,7 +686,7 @@
                                                         className="text-red-500 hover:text-red-400 flex items-center space-x-2"
                                                     >
                                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122-2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                                         </svg>
                                                         <span>Voir sur YouTube</span>
                                                     </a>
@@ -615,7 +709,7 @@
                                                         className="text-red-500 hover:text-red-400 flex items-center space-x-2"
                                                     >
                                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122-2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                                         </svg>
                                                         <span>Voir sur YouTube</span>
                                                     </a>
@@ -626,12 +720,48 @@
 
                                     {/* To Each Moment, Its Image */}
                                     <div className="group">
-                                        <a href="#" className="text-white hover:text-gray-400 flex items-center space-x-3">
+                                        <button 
+                                            onClick={() => toggleSubSection("ToEachMoment")}
+                                            className="text-white hover:text-gray-400 flex items-center space-x-3 w-full"
+                                        >
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                             </svg>
                                             <span>{language === "fr" ? "À Chaque Moment, Son Image" : "To Each Moment, Its Image"}</span>
-                                        </a>
+                                            <span className={`ml-2 transform ${activeSubSection === "ToEachMoment" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                        </button>
+                                        {activeSubSection === "ToEachMoment" && (
+                                            <div className="mt-4 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    {/* Ministerial Visit */}
+                                                    <div>
+                                                        <img 
+                                                            src="Knowledge Sharing/To Each Moment, Its Image/Ministerial visit/Ministerial visit.JPG"
+                                                            alt="Ministerial Visit"
+                                                            className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                            onClick={() => window.open("Knowledge Sharing/To Each Moment, Its Image/Ministerial visit/Ministerial visit.JPG", "_blank")}
+                                                        />
+                                                        <p className="text-center mt-2 text-white">
+                                                            {language === "fr" ? "Visite Ministérielle" : "Ministerial Visit"}
+                                                        </p>
+                                                    </div>
+                                                    {/* Photo Competition */}
+                                                    <div>
+                                                        <img 
+                                                            src="Knowledge Sharing/To Each Moment, Its Image/Photo competition/Photo competition.jpg"
+                                                            alt="Photo Competition"
+                                                            className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                            onClick={() => window.open("Knowledge Sharing/To Each Moment, Its Image/Photo competition/Photo competition.jpg", "_blank")}
+                                                        />
+                                                        <p className="text-center mt-2 text-white">
+                                                            {language === "fr" ? "Concours Photo" : "Photo Competition"}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
@@ -695,15 +825,96 @@
                                 <span className="text-red-500">{language === "fr" ? "Animations 3D" : "3D Animations"}</span>
                             </button>
                             {activeCreationSection === "3D Animations" && (
-                                <div className="mt-4 pl-6 space-y-2">
-                                    <ul>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Animation 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Animation 2</a>
-                                        </li>
-                                    </ul>
+                                <div className="mt-4 pl-6">
+                                    <div className="grid grid-cols-2 gap-6">
+                                        {[
+                                            {
+                                                title: "DLP 3D printing",
+                                                youtubeUrl: "https://youtu.be/gQSGJUVbDIs"
+                                            },
+                                            {
+                                                title: "DLP 3D printing zoom",
+                                                youtubeUrl: "https://youtu.be/kMGc9EQvCGc"
+                                            },
+                                            {
+                                                title: "Finger movement",
+                                                youtubeUrl: "https://youtu.be/DFDLB9O4w6I"
+                                            },
+                                            {
+                                                title: "Healing",
+                                                youtubeUrl: "https://youtu.be/LAF2UFL3QGE"
+                                            },
+                                            {
+                                                title: "Kelvin swelling",
+                                                youtubeUrl: "https://youtu.be/HTYfUH2Mn54"
+                                            },
+                                            {
+                                                title: "Movement",
+                                                youtubeUrl: "https://youtu.be/vARsp-Ogh2s"
+                                            },
+                                            {
+                                                title: "Pattern",
+                                                youtubeUrl: "https://youtu.be/6095-yLhzm4"
+                                            },
+                                            {
+                                                title: "Projection sequence",
+                                                youtubeUrl: "https://youtu.be/H7lub8wia2c"
+                                            },
+                                            {
+                                                title: "Projections",
+                                                youtubeUrl: "https://youtu.be/1AAmqiZS-e0"
+                                            },
+                                            {
+                                                title: "Stretching",
+                                                youtubeUrl: "https://youtu.be/qWzdyDcmejs"
+                                            },
+                                            {
+                                                title: "Swelling",
+                                                youtubeUrl: "https://youtu.be/MTM7KGMGz0M"
+                                            },
+                                            {
+                                                title: "Timoshenko",
+                                                youtubeUrl: "https://youtu.be/a7NerNbiXhk"
+                                            },
+                                            {
+                                                title: "Timoshenko 2",
+                                                youtubeUrl: "https://youtu.be/LSvrNChZxLU"
+                                            },
+                                            {
+                                                title: "Two-photon polymerization",
+                                                youtubeUrl: "https://youtu.be/TYOtJ___UrE"
+                                            },
+                                            {
+                                                title: "Volumetric 3D printing",
+                                                youtubeUrl: "https://youtu.be/CUzKXGUzArM"
+                                            }
+                                        ].map((video) => (
+                                            <div key={video.title} className="mb-6">
+                                                <h4 className="text-lg font-semibold text-white mb-2">{video.title}</h4>
+                                                <video 
+                                                    controls 
+                                                    className="w-full h-auto rounded-lg shadow-lg mb-2"
+                                                    src={`Creations/3D Animations/${video.title}.mp4`}
+                                                >
+                                                    {language === "fr" ? 
+                                                        "Votre navigateur ne supporte pas la lecture de vidéos." : 
+                                                        "Your browser does not support video playback."
+                                                    }
+                                                </video>
+                                                <a 
+                                                    href={video.youtubeUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-red-500 hover:text-red-400 flex items-center space-x-2"
+                                                >
+                                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122-2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                    </svg>
+                                                    <span>{language === "fr" ? "Voir sur YouTube" : "Watch on YouTube"}</span>
+                                                </a>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
                         </div>
@@ -720,56 +931,265 @@
                                 <span className="text-red-500">{language === "fr" ? "Modèles 3D" : "3D Models"}</span>
                             </button>
                             {activeCreationSection === "3D Models" && (
-                                <div className="mt-4 pl-6 space-y-8">
-                                    {/* Modèle 1 */}
-                                    <div>
-                                        <h4 className="text-xl font-bold text-red-500 mb-2">
-                                            <a 
-                                                href="https://sketchfab.com/3d-models/gradient-kelvin-666f17a6219a4aba883290f4ec54eb60" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
-                                                className="hover:underline"
-                                            >
-                                                Gradient Kelvin
-                                            </a>
-                                        </h4>
-                                        <div className="sketchfab-embed-wrapper">
-                                            <iframe
-                                                title="Gradient Kelvin"
-                                                frameBorder="0"
-                                                allowFullScreen
-                                                mozallowfullscreen="true"
-                                                webkitallowfullscreen="true"
-                                                allow="autoplay; fullscreen; xr-spatial-tracking"
-                                                src="https://sketchfab.com/models/666f17a6219a4aba883290f4ec54eb60/embed"
-                                                className="w-full h-96"
-                                            ></iframe>
-                                        </div>
-                                    </div>
+                                <div className="mt-4 pl-6">
+                                    <div className="grid grid-cols-3 gap-6">
+                                        {/* First column */}
+                                        <div className="space-y-8">
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/gradient-kelvin-666f17a6219a4aba883290f4ec54eb60" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Gradient Kelvin
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Gradient Kelvin"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/666f17a6219a4aba883290f4ec54eb60/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
 
-                                    {/* Modèle 2 */}
-                                    <div>
-                                        <h4 className="text-xl font-bold text-red-500 mb-2">
-                                            <a 
-                                                href="https://sketchfab.com/3d-models/kelvin-finger-af000977d22a4739a5d6939b184922f9?utm_medium=embed&utm_campaign=share-popup&utm_content=af000977d22a4739a5d6939b184922f9" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
-                                                className="hover:underline"
-                                            >
-                                                Kelvin finger
-                                            </a>
-                                        </h4>
-                                        <div className="sketchfab-embed-wrapper">
-                                            <iframe
-                                                title="Kelvin finger"
-                                                frameBorder="0"
-                                                allowFullScreen
-                                                mozallowfullscreen="true"
-                                                webkitallowfullscreen="true"
-                                                allow="autoplay; fullscreen; xr-spatial-tracking"
-                                                src="https://sketchfab.com/models/af000977d22a4739a5d6939b184922f9/embed"
-                                                className="w-full h-96"
-                                            ></iframe>
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/olympic-science-medal-b304c2b05720477384b784efdb9a6186" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Olympic Science Medal
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Olympic Science Medal"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/b304c2b05720477384b784efdb9a6186/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/structure-diabolo-363fb282691e445f89205416b148bf52" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Structure Diabolo
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Structure Diabolo"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/363fb282691e445f89205416b148bf52/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/gyroid-80x80x80-20-mm-f957ae4aeba64e5087d2b496fad9044d" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Gyroid 80x80x80 (20 mm)
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Gyroid 80x80x80 (20 mm)"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/f957ae4aeba64e5087d2b496fad9044d/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Second column */}
+                                        <div className="space-y-8">
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/kelvin-finger-af000977d22a4739a5d6939b184922f9" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Kelvin finger
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Kelvin finger"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/af000977d22a4739a5d6939b184922f9/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/gyroid-5-848fcaa7a5b24d19bdfd7ee2d41bce01" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Gyroïd 5
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Gyroïd 5"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/848fcaa7a5b24d19bdfd7ee2d41bce01/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/cross-centre-20d6c85c268f4f8fa1f3d34977b7e97e" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Cross Centre
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Cross Centre"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/20d6c85c268f4f8fa1f3d34977b7e97e/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/cap-electrochimie-3-electrodes-f718b950ea0149c7b2ec579f64f93357" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Cap Electrochimie 3 Electrodes
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Cap Electrochimie 3 Electrodes"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/f718b950ea0149c7b2ec579f64f93357/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Third column */}
+                                        <div className="space-y-8">
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/diamond-94f323cca8944a0aa6efeeaa0415a0eb" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Diamond
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Diamond"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/94f323cca8944a0aa6efeeaa0415a0eb/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h4 className="text-xl font-bold text-red-500 mb-2">
+                                                    <a 
+                                                        href="https://sketchfab.com/3d-models/grid-c9195d80bbfd4143bb589b9e098bc710" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="hover:underline"
+                                                    >
+                                                        Grid
+                                                    </a>
+                                                </h4>
+                                                <div className="sketchfab-embed-wrapper">
+                                                    <iframe
+                                                        title="Grid"
+                                                        frameBorder="0"
+                                                        allowFullScreen
+                                                        mozallowfullscreen="true"
+                                                        webkitallowfullscreen="true"
+                                                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                                                        src="https://sketchfab.com/models/c9195d80bbfd4143bb589b9e098bc710/embed"
+                                                        className="w-full h-80"
+                                                    ></iframe>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -788,15 +1208,214 @@
                                 <span className="text-red-500">{language === "fr" ? "Autres créations personnelles" : "Other personal creations"}</span>
                             </button>
                             {activeCreationSection === "Other personal creations" && (
-                                <div className="mt-4 pl-6 space-y-2">
-                                    <ul>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Creation 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="text-white hover:text-gray-400">Creation 2</a>
-                                        </li>
-                                    </ul>
+                                <div className="mt-4 pl-6 space-y-4">
+                                    {/* 3D creations */}
+                                    <div>
+                                        <button 
+                                            onClick={() => toggleSubSection("3D creations")}
+                                            className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        >
+                                            <span className={`mr-3 transform ${activeSubSection === "3D creations" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                            <span>{language === "fr" ? "Créations 3D" : "3D creations"}</span>
+                                        </button>
+                                        {activeSubSection === "3D creations" && (
+                                            <div className="mt-2 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    {[
+                                                        "Curiosity",
+                                                        "Curiosity-2",
+                                                        "Curiosity-3",
+                                                        "Curiosity-4",
+                                                        "Goldorak",
+                                                        "Lithophanie without light",
+                                                        "Lithophanie with light",
+                                                        "MadMax",
+                                                        "Olympic science medal",
+                                                        "Olympic science medal-2",
+                                                        "Zeolite penholder"
+                                                    ].map((image) => (
+                                                        <div key={image} className="space-y-2">
+                                                            <img 
+                                                                src={`Creations/Other personal creations/3D creations/${image}.jpg`}
+                                                                alt={image}
+                                                                className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                onClick={() => window.open(`Creations/Other personal creations/3D creations/${image}.jpg`, "_blank")}
+                                                            />
+                                                            <p className="text-center text-white font-medium">
+                                                                {image}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Cajon */}
+                                    <div>
+                                        <button 
+                                            onClick={() => toggleSubSection("Cajon")}
+                                            className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        >
+                                            <span className={`mr-3 transform ${activeSubSection === "Cajon" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                            <span>Cajon</span>
+                                        </button>
+                                        {activeSubSection === "Cajon" && (
+                                            <div className="mt-2 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    {[...Array(22)].map((_, index) => (
+                                                        <div key={`Cajon-${index + 1}`} className="space-y-2">
+                                                            <img 
+                                                                src={`Creations/Other personal creations/Cajon/Cajon-${index + 1}.jpg`}
+                                                                alt={`Cajon ${index + 1}`}
+                                                                className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                onClick={() => window.open(`Creations/Other personal creations/Cajon/Cajon-${index + 1}.jpg`, "_blank")}
+                                                            />
+                                                            <p className="text-center text-white font-medium">
+                                                                {`Cajon ${index + 1}`}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Drawing */}
+                                    <div>
+                                        <button 
+                                            onClick={() => toggleSubSection("Drawing")}
+                                            className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        >
+                                            <span className={`mr-3 transform ${activeSubSection === "Drawing" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                            <span>{language === "fr" ? "Dessin" : "Drawing"}</span>
+                                        </button>
+                                        {activeSubSection === "Drawing" && (
+                                            <div className="mt-2 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    {[
+                                                        {
+                                                            name: "Tee-shirt",
+                                                            file: "Tee-shirt.jpg"
+                                                        },
+                                                        {
+                                                            name: "Tee-shirt 2",
+                                                            file: "Tee-shirt-2.jpg"
+                                                        },
+                                                        {
+                                                            name: "Wall",
+                                                            file: "Wall.jpg"
+                                                        },
+                                                        {
+                                                            name: "Wall 2",
+                                                            file: "Wall-2.jpg"
+                                                        },
+                                                        {
+                                                            name: "Wall 3",
+                                                            file: "Wall-3.jpg"
+                                                        }
+                                                    ].map((image) => (
+                                                        <div key={image.name} className="space-y-2">
+                                                            <img 
+                                                                src={`Creations/Other personal creations/Drawing/${image.file}`}
+                                                                alt={image.name}
+                                                                className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                onClick={() => window.open(`Creations/Other personal creations/Drawing/${image.file}`, "_blank")}
+                                                            />
+                                                            <p className="text-center text-white font-medium">
+                                                                {image.name}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Garden construction */}
+                                    <div>
+                                        <button 
+                                            onClick={() => toggleSubSection("Garden construction")}
+                                            className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        >
+                                            <span className={`mr-3 transform ${activeSubSection === "Garden construction" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                            <span>{language === "fr" ? "Construction jardin" : "Garden construction"}</span>
+                                        </button>
+                                        {activeSubSection === "Garden construction" && (
+                                            <div className="mt-2 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    {[
+                                                        {
+                                                            name: "Greenhouse",
+                                                            file: "Greenhouse.jpg"
+                                                        },
+                                                        {
+                                                            name: "Greenhouse 2",
+                                                            file: "Greenhouse-2.jpg"
+                                                        },
+                                                        {
+                                                            name: "Vertical garden",
+                                                            file: "Vertical garden.jpg"
+                                                        },
+                                                        {
+                                                            name: "Vertical garden 2",
+                                                            file: "Vertical garden-2.jpg"
+                                                        }
+                                                    ].map((image) => (
+                                                        <div key={image.name} className="space-y-2">
+                                                            <img 
+                                                                src={`Creations/Other personal creations/Garden construction/${image.file}`}
+                                                                alt={image.name}
+                                                                className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                                onClick={() => window.open(`Creations/Other personal creations/Garden construction/${image.file}`, "_blank")}
+                                                            />
+                                                            <p className="text-center text-white font-medium">
+                                                                {image.name}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Photoshop */}
+                                    <div>
+                                        <button 
+                                            onClick={() => toggleSubSection("Photoshop")}
+                                            className="flex items-center text-lg font-semibold text-white hover:text-gray-300"
+                                        >
+                                            <span className={`mr-3 transform ${activeSubSection === "Photoshop" ? "rotate-90" : ""}`}>
+                                                &gt;
+                                            </span>
+                                            <span>Photoshop</span>
+                                        </button>
+                                        {activeSubSection === "Photoshop" && (
+                                            <div className="mt-2 pl-6">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div className="space-y-2">
+                                                        <img 
+                                                            src="Creations/Other personal creations/Photoshop/Carbon tree on a mountain.png"
+                                                            alt="Carbon tree on a mountain"
+                                                            className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                                                            onClick={() => window.open("Creations/Other personal creations/Photoshop/Carbon tree on a mountain.png", "_blank")}
+                                                        />
+                                                        <p className="text-center text-white font-medium">
+                                                            Carbon tree on a mountain
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             )}
                         </div>
